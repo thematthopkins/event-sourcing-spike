@@ -13,6 +13,7 @@ module EventSourcing
     config.load_defaults 6.0
 
     config.autoload_paths += %W(#{config.root}/app/models/events)
+    config.autoload_paths += %W(#{config.root}/app/models/aggregates)
 
 
     # Settings in config/environments/* take precedence over those specified here.

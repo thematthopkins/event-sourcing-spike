@@ -1,10 +1,12 @@
 require 'rails_helper'
+require 'carts_aggregate'
 
 RSpec.describe Order, type: :model do
+  let (:client) { client = Rails.configuration.event_store }
   it 'calls subscribed notifications on event publication' do
-    event_store = Rails.configuration.event_store
+    CartsAggregate.new
     events_received = []
-    event_store.subscribe(-> (event){
+    client.subscribe(-> (event){
       events_received.append(event)
     }, to: [CreateCart])
     event = CreateCart.new(
@@ -12,34 +14,72 @@ RSpec.describe Order, type: :model do
         id: 'my-cart-id'
       }
     )
-    event_store.publish(event, stream_name: 'my-stream', expected_version: 10)
+    client.publish(event, stream_name: 'my-stream', expected_version: 10)
     expect(events_received)
       .to eq([event])
   end
 
   it 'expected version conflicts to raise an exception' do
-    event_store = Rails.configuration.event_store
     event = CreateCart.new(
       data: {
         id: 'my-cart-id'
       }
     )
-    event_store.publish(event, stream_name: 'my-stream', expected_version: 0)
+    client.publish(event, stream_name: 'my-stream', expected_version: 0)
 
-    expect(-> { event_store.publish(event, stream_name: 'my-stream', expected_version: 0) })
+    expect(-> { client.publish(event, stream_name: 'my-stream', expected_version: 0) })
       .to raise_error(RubyEventStore::EventDuplicatedInStream)
   end
 
   it 'can read from a stream' do
-    event_store = Rails.configuration.event_store
     event = CreateCart.new(
       data: {
         id: 'my-cart-id'
       }
     )
-    event_store.publish(event, stream_name: 'my-stream', expected_version: 0)
+    client.publish(event, stream_name: 'my-stream', expected_version: 0)
 
-    expect(event_store.read.stream('my-stream').count)
+    expect(client.read.stream('my-stream').count)
       .to eq(1)
   end
+
+  it 'can create cart' do
+    event = CreateCart.new(
+      data: {
+        cart_id: 'my-cart-id'
+      }
+    )
+    client.publish(event, stream_name: 'my-stream', expected_version: 0)
+
+    cartsAggregate = AggregateRoot::Repository.new.load(CartsAggregate.new, 'my-stream')
+    expect(cartsAggregate.carts)
+      .to eq({'my-cart-id'=> {
+        :items => {}
+      }})
+  end
+
+  it 'can create cart' do
+    client.publish(CreateCart.new(
+      data: {
+        cart_id: 'my-cart-id'
+      }
+    ), stream_name: 'my-stream', expected_version: 0)
+
+    cartsAggregate = AggregateRoot::Repository.new.load(CartsAggregate.new, 'my-stream')
+    expect(cartsAggregate.carts)
+      .to eq({'my-cart-id'=> {
+        :items => {}
+      }})
+  end
+
+  it 'throws exception when no cart' do
+    client.publish(AddItem.new(
+      data: {
+        cart_id: 'my-cart-id'
+      }
+    ), stream_name: 'my-stream')
+    expect(-> { AggregateRoot::Repository.new.load(CartsAggregate.new, 'my-stream') })
+      .to raise_error(CartsAggregate::InvalidCartID)
+  end
+
 end
