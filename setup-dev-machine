@@ -1,0 +1,12 @@
+#!/bin/bash
+set -euo pipefail
+
+brew update
+brew upgrade
+brew install rbenv
+brew install direnv
+npm install -g yarn
+rbenv install 2.7.4
+
+echo `setup rbenv so we have 
+echo 'Make sure you have direnv setup - add eval "$(direnv hook zsh)" to setup your shell - https://direnv.net/docs/hook.html'
