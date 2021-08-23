@@ -1,0 +1,37 @@
+#!/bin/bash
+set -euo pipefail
+
+SQL_DEBUG_LOGGING_FLAG=""
+
+# using pattern from stackoverflow for command line arg parsing
+# https://stackoverflow.com/questions/192249/how-do-i-parse-command-line-arguments-in-bash
+for i in "$@"; do
+    case $i in
+        -d|--debug)
+        SQL_DEBUG_LOGGING_FLAG="true"
+        shift
+        ;;
+        *)
+            echo "unknown arg (${i}). Valid options are: "
+            echo "--debug (logs all sql statements)"
+            exit 1
+        ;;
+    esac
+done
+
+TEMP_DB_DIR="$(mktemp -d)"
+function cleanup {
+    # kill child processes when this script gets killed
+    kill "$(jobs -p)" &> /dev/null
+    rm -rf "${TEMP_DB_DIR}"
+}
+
+trap 'cleanup' EXIT
+
+echo "killing old postgres processes"
+killall -c postgres || true
+
+./start-postgres.sh "$(command -v postgres)" "$(command -v initdb)" "${TEMP_DB_DIR}" "${SQL_DEBUG_LOGGING_FLAG}"
+
+bin/rails db:migrate RAILS_ENV=development
+bin/rails server
