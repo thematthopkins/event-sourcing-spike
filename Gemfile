@@ -59,4 +59,7 @@ gem 'rails_event_store', '~> 2.2.0'
 
 gem 'sorbet', '0.5.9030', :group => :development
 gem 'sorbet-runtime', '0.5.9030'
+group :development, :test do
+  gem 'rspec-rails', '~> 5.0.0'
+end
 

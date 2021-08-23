@@ -35,3 +35,12 @@ echo "" >> "${DB_DIR}/postgresql.conf"
 "${POSTGRES}" -D "${DB_DIR}" -k /tmp &
 
 ./wait-for-pg.sh "postgres://superuser:password@localhost:5432/postgres"
+
+psql "postgres://superuser:password@localhost:5432/postgres" -c "SELECT pg_terminate_backend(pid) FROM pg_stat_activity WHERE datname = 'development';" > /dev/null
+psql "postgres://superuser:password@localhost:5432/postgres" -c 'drop database if exists development' > /dev/null
+psql "postgres://superuser:password@localhost:5432/postgres" -c 'create database development' > /dev/null
+
+psql "postgres://superuser:password@localhost:5432/postgres" -c "SELECT pg_terminate_backend(pid) FROM pg_stat_activity WHERE datname = 'test';" > /dev/null
+psql "postgres://superuser:password@localhost:5432/postgres" -c 'drop database if exists test' > /dev/null
+psql "postgres://superuser:password@localhost:5432/postgres" -c 'create database test' > /dev/null
+

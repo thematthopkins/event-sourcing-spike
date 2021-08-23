@@ -33,5 +33,7 @@ killall -c postgres || true
 
 ./start-postgres.sh "$(command -v postgres)" "$(command -v initdb)" "${TEMP_DB_DIR}" "${SQL_DEBUG_LOGGING_FLAG}"
 
-bin/rails db:migrate RAILS_ENV=development
-bin/rails server
+# spring is evil and likes to hold on to old env vars from other sessions.  Watch out.
+spring stop
+rails db:migrate RAILS_ENV=development
+rails server
