@@ -312,6 +312,24 @@ module AbstractController
   extend ::ActiveSupport::Autoload
 end
 
+class Account
+  include ::Account::GeneratedAttributeMethods
+  include ::Account::GeneratedAssociationMethods
+end
+
+module Account::GeneratedAssociationMethods
+end
+
+module Account::GeneratedAssociationMethods
+end
+
+module Account::GeneratedAttributeMethods
+end
+
+module Account::GeneratedAttributeMethods
+  extend ::Mutex_m
+end
+
 module ActionCable
   INTERNAL = ::T.let(nil, ::T.untyped)
 end
@@ -13535,6 +13553,13 @@ end
 class ActiveRecord::ConnectionAdapters::IndexDefinition
 end
 
+class ActiveRecord::ConnectionAdapters::NullColumn
+  def initialize(name); end
+end
+
+class ActiveRecord::ConnectionAdapters::NullColumn
+end
+
 class ActiveRecord::ConnectionAdapters::NullPool
   include ::ActiveRecord::ConnectionAdapters::AbstractPool
 end
@@ -13556,6 +13581,705 @@ end
 
 class ActiveRecord::ConnectionAdapters::NullTransaction
 end
+
+module ActiveRecord::ConnectionAdapters::PostgreSQL
+end
+
+class ActiveRecord::ConnectionAdapters::PostgreSQL::AlterTable
+  def constraint_validations(); end
+
+  def validate_constraint(name); end
+end
+
+class ActiveRecord::ConnectionAdapters::PostgreSQL::AlterTable
+end
+
+class ActiveRecord::ConnectionAdapters::PostgreSQL::Column
+  def array(); end
+
+  def array?(); end
+
+  def fmod(*_, &_1); end
+
+  def initialize(*_, serial: T.unsafe(nil), **_1); end
+
+  def oid(*_, &_1); end
+
+  def serial?(); end
+
+  def sql_type(); end
+end
+
+class ActiveRecord::ConnectionAdapters::PostgreSQL::Column
+end
+
+module ActiveRecord::ConnectionAdapters::PostgreSQL::ColumnMethods
+  def primary_key(name, type=T.unsafe(nil), **options); end
+end
+
+module ActiveRecord::ConnectionAdapters::PostgreSQL::ColumnMethods
+  extend ::ActiveSupport::Concern
+end
+
+module ActiveRecord::ConnectionAdapters::PostgreSQL::DatabaseStatements
+  def begin_db_transaction(); end
+
+  def begin_isolated_db_transaction(isolation); end
+
+  def commit_db_transaction(); end
+
+  def exec_delete(sql, name=T.unsafe(nil), binds=T.unsafe(nil)); end
+
+  def exec_insert(sql, name=T.unsafe(nil), binds=T.unsafe(nil), pk=T.unsafe(nil), sequence_name=T.unsafe(nil)); end
+
+  def exec_query(sql, name=T.unsafe(nil), binds=T.unsafe(nil), prepare: T.unsafe(nil)); end
+
+  def exec_rollback_db_transaction(); end
+
+  def exec_update(sql, name=T.unsafe(nil), binds=T.unsafe(nil)); end
+
+  def execute(sql, name=T.unsafe(nil)); end
+
+  def explain(arel, binds=T.unsafe(nil)); end
+
+  def query(sql, name=T.unsafe(nil)); end
+
+  def result_as_array(res); end
+
+  def write_query?(sql); end
+  BYTEA_COLUMN_TYPE_OID = ::T.let(nil, ::T.untyped)
+  MONEY_COLUMN_TYPE_OID = ::T.let(nil, ::T.untyped)
+end
+
+module ActiveRecord::ConnectionAdapters::PostgreSQL::DatabaseStatements
+end
+
+class ActiveRecord::ConnectionAdapters::PostgreSQL::ExplainPrettyPrinter
+  def pp(result); end
+end
+
+class ActiveRecord::ConnectionAdapters::PostgreSQL::ExplainPrettyPrinter
+end
+
+class ActiveRecord::ConnectionAdapters::PostgreSQL::Name
+  def ==(o); end
+
+  def eql?(o); end
+
+  def identifier(); end
+
+  def initialize(schema, identifier); end
+
+  def parts(); end
+
+  def quoted(); end
+
+  def schema(); end
+  SEPARATOR = ::T.let(nil, ::T.untyped)
+end
+
+class ActiveRecord::ConnectionAdapters::PostgreSQL::Name
+end
+
+module ActiveRecord::ConnectionAdapters::PostgreSQL::OID
+end
+
+class ActiveRecord::ConnectionAdapters::PostgreSQL::OID::Array
+  include ::ActiveModel::Type::Helpers::Mutable
+  def delimiter(); end
+
+  def force_equality?(value); end
+
+  def initialize(subtype, delimiter=T.unsafe(nil)); end
+
+  def limit(*_, &_1); end
+
+  def map(value, &block); end
+
+  def precision(*_, &_1); end
+
+  def scale(*_, &_1); end
+
+  def subtype(); end
+
+  def type(*_, &_1); end
+
+  def user_input_in_time_zone(*_, &_1); end
+end
+
+class ActiveRecord::ConnectionAdapters::PostgreSQL::OID::Array::Data
+  def encoder(); end
+
+  def encoder=(_); end
+
+  def values=(_); end
+end
+
+class ActiveRecord::ConnectionAdapters::PostgreSQL::OID::Array::Data
+  def self.[](*_); end
+
+  def self.members(); end
+end
+
+class ActiveRecord::ConnectionAdapters::PostgreSQL::OID::Array
+end
+
+class ActiveRecord::ConnectionAdapters::PostgreSQL::OID::Bit
+end
+
+class ActiveRecord::ConnectionAdapters::PostgreSQL::OID::Bit::Data
+  def binary?(); end
+
+  def hex?(); end
+
+  def initialize(value); end
+end
+
+class ActiveRecord::ConnectionAdapters::PostgreSQL::OID::Bit::Data
+end
+
+class ActiveRecord::ConnectionAdapters::PostgreSQL::OID::Bit
+end
+
+class ActiveRecord::ConnectionAdapters::PostgreSQL::OID::BitVarying
+end
+
+class ActiveRecord::ConnectionAdapters::PostgreSQL::OID::BitVarying
+end
+
+class ActiveRecord::ConnectionAdapters::PostgreSQL::OID::Bytea
+end
+
+class ActiveRecord::ConnectionAdapters::PostgreSQL::OID::Bytea
+end
+
+class ActiveRecord::ConnectionAdapters::PostgreSQL::OID::Cidr
+end
+
+class ActiveRecord::ConnectionAdapters::PostgreSQL::OID::Cidr
+end
+
+class ActiveRecord::ConnectionAdapters::PostgreSQL::OID::Date
+end
+
+class ActiveRecord::ConnectionAdapters::PostgreSQL::OID::Date
+end
+
+class ActiveRecord::ConnectionAdapters::PostgreSQL::OID::DateTime
+end
+
+class ActiveRecord::ConnectionAdapters::PostgreSQL::OID::DateTime
+end
+
+class ActiveRecord::ConnectionAdapters::PostgreSQL::OID::Decimal
+  def infinity(options=T.unsafe(nil)); end
+end
+
+class ActiveRecord::ConnectionAdapters::PostgreSQL::OID::Decimal
+end
+
+class ActiveRecord::ConnectionAdapters::PostgreSQL::OID::Enum
+end
+
+class ActiveRecord::ConnectionAdapters::PostgreSQL::OID::Enum
+end
+
+class ActiveRecord::ConnectionAdapters::PostgreSQL::OID::Hstore
+  include ::ActiveModel::Type::Helpers::Mutable
+  def accessor(); end
+  HstorePair = ::T.let(nil, ::T.untyped)
+end
+
+class ActiveRecord::ConnectionAdapters::PostgreSQL::OID::Hstore
+end
+
+class ActiveRecord::ConnectionAdapters::PostgreSQL::OID::Inet
+end
+
+class ActiveRecord::ConnectionAdapters::PostgreSQL::OID::Inet
+end
+
+class ActiveRecord::ConnectionAdapters::PostgreSQL::OID::Jsonb
+end
+
+class ActiveRecord::ConnectionAdapters::PostgreSQL::OID::Jsonb
+end
+
+class ActiveRecord::ConnectionAdapters::PostgreSQL::OID::LegacyPoint
+  include ::ActiveModel::Type::Helpers::Mutable
+end
+
+class ActiveRecord::ConnectionAdapters::PostgreSQL::OID::LegacyPoint
+end
+
+class ActiveRecord::ConnectionAdapters::PostgreSQL::OID::Money
+end
+
+class ActiveRecord::ConnectionAdapters::PostgreSQL::OID::Money
+end
+
+class ActiveRecord::ConnectionAdapters::PostgreSQL::OID::Oid
+end
+
+class ActiveRecord::ConnectionAdapters::PostgreSQL::OID::Oid
+end
+
+class ActiveRecord::ConnectionAdapters::PostgreSQL::OID::Point
+  include ::ActiveModel::Type::Helpers::Mutable
+end
+
+class ActiveRecord::ConnectionAdapters::PostgreSQL::OID::Point
+end
+
+class ActiveRecord::ConnectionAdapters::PostgreSQL::OID::Range
+  def force_equality?(value); end
+
+  def initialize(subtype, type=T.unsafe(nil)); end
+
+  def subtype(); end
+
+  def user_input_in_time_zone(*_, &_1); end
+end
+
+class ActiveRecord::ConnectionAdapters::PostgreSQL::OID::Range
+end
+
+class ActiveRecord::ConnectionAdapters::PostgreSQL::OID::SpecializedString
+  def initialize(type, **options); end
+end
+
+class ActiveRecord::ConnectionAdapters::PostgreSQL::OID::SpecializedString
+end
+
+class ActiveRecord::ConnectionAdapters::PostgreSQL::OID::TypeMapInitializer
+  def initialize(store); end
+
+  def query_conditions_for_initial_load(); end
+
+  def run(records); end
+end
+
+class ActiveRecord::ConnectionAdapters::PostgreSQL::OID::TypeMapInitializer
+end
+
+class ActiveRecord::ConnectionAdapters::PostgreSQL::OID::Uuid
+  ACCEPTABLE_UUID = ::T.let(nil, ::T.untyped)
+end
+
+class ActiveRecord::ConnectionAdapters::PostgreSQL::OID::Uuid
+end
+
+class ActiveRecord::ConnectionAdapters::PostgreSQL::OID::Vector
+  def delim(); end
+
+  def initialize(delim, subtype); end
+
+  def subtype(); end
+end
+
+class ActiveRecord::ConnectionAdapters::PostgreSQL::OID::Vector
+end
+
+class ActiveRecord::ConnectionAdapters::PostgreSQL::OID::Xml
+end
+
+class ActiveRecord::ConnectionAdapters::PostgreSQL::OID::Xml::Data
+  def initialize(value); end
+end
+
+class ActiveRecord::ConnectionAdapters::PostgreSQL::OID::Xml::Data
+end
+
+class ActiveRecord::ConnectionAdapters::PostgreSQL::OID::Xml
+end
+
+module ActiveRecord::ConnectionAdapters::PostgreSQL::OID
+end
+
+module ActiveRecord::ConnectionAdapters::PostgreSQL::Quoting
+  def column_name_matcher(); end
+
+  def column_name_with_order_matcher(); end
+
+  def escape_bytea(value); end
+
+  def lookup_cast_type_from_column(column); end
+
+  def quote_column_name(name); end
+
+  def quote_default_expression(value, column); end
+
+  def quote_schema_name(name); end
+
+  def quote_string(s); end
+
+  def quote_table_name(name); end
+
+  def quote_table_name_for_assignment(table, attr); end
+
+  def quoted_binary(value); end
+
+  def quoted_date(value); end
+
+  def unescape_bytea(value); end
+end
+
+module ActiveRecord::ConnectionAdapters::PostgreSQL::Quoting
+end
+
+module ActiveRecord::ConnectionAdapters::PostgreSQL::ReferentialIntegrity
+  def disable_referential_integrity(); end
+end
+
+module ActiveRecord::ConnectionAdapters::PostgreSQL::ReferentialIntegrity
+end
+
+class ActiveRecord::ConnectionAdapters::PostgreSQL::SchemaCreation
+end
+
+class ActiveRecord::ConnectionAdapters::PostgreSQL::SchemaCreation
+end
+
+class ActiveRecord::ConnectionAdapters::PostgreSQL::SchemaDumper
+end
+
+class ActiveRecord::ConnectionAdapters::PostgreSQL::SchemaDumper
+end
+
+module ActiveRecord::ConnectionAdapters::PostgreSQL::SchemaStatements
+  def add_column(table_name, column_name, type, **options); end
+
+  def add_index(table_name, column_name, options=T.unsafe(nil)); end
+
+  def change_column(table_name, column_name, type, options=T.unsafe(nil)); end
+
+  def change_column_comment(table_name, column_name, comment_or_changes); end
+
+  def change_column_default(table_name, column_name, default_or_changes); end
+
+  def change_column_null(table_name, column_name, null, default=T.unsafe(nil)); end
+
+  def change_table_comment(table_name, comment_or_changes); end
+
+  def client_min_messages(); end
+
+  def client_min_messages=(level); end
+
+  def collation(); end
+
+  def columns_for_distinct(columns, orders); end
+
+  def create_database(name, options=T.unsafe(nil)); end
+
+  def create_schema(schema_name); end
+
+  def create_schema_dumper(options); end
+
+  def ctype(); end
+
+  def current_database(); end
+
+  def current_schema(); end
+
+  def default_sequence_name(table_name, pk=T.unsafe(nil)); end
+
+  def drop_database(name); end
+
+  def drop_schema(schema_name, options=T.unsafe(nil)); end
+
+  def drop_table(table_name, options=T.unsafe(nil)); end
+
+  def encoding(); end
+
+  def foreign_keys(table_name); end
+
+  def foreign_table_exists?(table_name); end
+
+  def foreign_tables(); end
+
+  def index_name_exists?(table_name, index_name); end
+
+  def indexes(table_name); end
+
+  def pk_and_sequence_for(table); end
+
+  def primary_keys(table_name); end
+
+  def recreate_database(name, options=T.unsafe(nil)); end
+
+  def remove_index(table_name, options=T.unsafe(nil)); end
+
+  def rename_column(table_name, column_name, new_column_name); end
+
+  def rename_index(table_name, old_name, new_name); end
+
+  def rename_table(table_name, new_name); end
+
+  def reset_pk_sequence!(table, pk=T.unsafe(nil), sequence=T.unsafe(nil)); end
+
+  def schema_exists?(name); end
+
+  def schema_names(); end
+
+  def schema_search_path(); end
+
+  def schema_search_path=(schema_csv); end
+
+  def serial_sequence(table, column); end
+
+  def set_pk_sequence!(table, value); end
+
+  def table_comment(table_name); end
+
+  def table_options(table_name); end
+
+  def type_to_sql(type, limit: T.unsafe(nil), precision: T.unsafe(nil), scale: T.unsafe(nil), array: T.unsafe(nil), **_); end
+
+  def update_table_definition(table_name, base); end
+
+  def validate_constraint(table_name, constraint_name); end
+
+  def validate_foreign_key(from_table, to_table=T.unsafe(nil), **options); end
+end
+
+module ActiveRecord::ConnectionAdapters::PostgreSQL::SchemaStatements
+end
+
+class ActiveRecord::ConnectionAdapters::PostgreSQL::Table
+  include ::ActiveRecord::ConnectionAdapters::PostgreSQL::ColumnMethods
+  def bigserial(*names, **options); end
+
+  def bit(*names, **options); end
+
+  def bit_varying(*names, **options); end
+
+  def box(*names, **options); end
+
+  def cidr(*names, **options); end
+
+  def circle(*names, **options); end
+
+  def citext(*names, **options); end
+
+  def daterange(*names, **options); end
+
+  def hstore(*names, **options); end
+
+  def inet(*names, **options); end
+
+  def int4range(*names, **options); end
+
+  def int8range(*names, **options); end
+
+  def interval(*names, **options); end
+
+  def jsonb(*names, **options); end
+
+  def line(*names, **options); end
+
+  def lseg(*names, **options); end
+
+  def ltree(*names, **options); end
+
+  def macaddr(*names, **options); end
+
+  def money(*names, **options); end
+
+  def numrange(*names, **options); end
+
+  def oid(*names, **options); end
+
+  def path(*names, **options); end
+
+  def point(*names, **options); end
+
+  def polygon(*names, **options); end
+
+  def serial(*names, **options); end
+
+  def tsrange(*names, **options); end
+
+  def tstzrange(*names, **options); end
+
+  def tsvector(*names, **options); end
+
+  def uuid(*names, **options); end
+
+  def xml(*names, **options); end
+end
+
+class ActiveRecord::ConnectionAdapters::PostgreSQL::Table
+end
+
+class ActiveRecord::ConnectionAdapters::PostgreSQL::TableDefinition
+  include ::ActiveRecord::ConnectionAdapters::PostgreSQL::ColumnMethods
+  def bigserial(*names, **options); end
+
+  def bit(*names, **options); end
+
+  def bit_varying(*names, **options); end
+
+  def box(*names, **options); end
+
+  def cidr(*names, **options); end
+
+  def circle(*names, **options); end
+
+  def citext(*names, **options); end
+
+  def daterange(*names, **options); end
+
+  def hstore(*names, **options); end
+
+  def inet(*names, **options); end
+
+  def initialize(*_, **_1); end
+
+  def int4range(*names, **options); end
+
+  def int8range(*names, **options); end
+
+  def interval(*names, **options); end
+
+  def jsonb(*names, **options); end
+
+  def line(*names, **options); end
+
+  def lseg(*names, **options); end
+
+  def ltree(*names, **options); end
+
+  def macaddr(*names, **options); end
+
+  def money(*names, **options); end
+
+  def numrange(*names, **options); end
+
+  def oid(*names, **options); end
+
+  def path(*names, **options); end
+
+  def point(*names, **options); end
+
+  def polygon(*names, **options); end
+
+  def serial(*names, **options); end
+
+  def tsrange(*names, **options); end
+
+  def tstzrange(*names, **options); end
+
+  def tsvector(*names, **options); end
+
+  def unlogged(); end
+
+  def uuid(*names, **options); end
+
+  def xml(*names, **options); end
+end
+
+class ActiveRecord::ConnectionAdapters::PostgreSQL::TableDefinition
+end
+
+class ActiveRecord::ConnectionAdapters::PostgreSQL::TypeMetadata
+  def ==(other); end
+
+  def eql?(other); end
+
+  def fmod(); end
+
+  def hash(); end
+
+  def initialize(type_metadata, oid: T.unsafe(nil), fmod: T.unsafe(nil)); end
+
+  def oid(); end
+  RUBYGEMS_ACTIVATION_MONITOR = ::T.let(nil, ::T.untyped)
+end
+
+class ActiveRecord::ConnectionAdapters::PostgreSQL::TypeMetadata
+end
+
+module ActiveRecord::ConnectionAdapters::PostgreSQL::Utils
+  def extract_schema_qualified_name(string); end
+end
+
+module ActiveRecord::ConnectionAdapters::PostgreSQL::Utils
+  extend ::ActiveRecord::ConnectionAdapters::PostgreSQL::Utils
+end
+
+module ActiveRecord::ConnectionAdapters::PostgreSQL
+end
+
+class ActiveRecord::ConnectionAdapters::PostgreSQLAdapter
+  include ::ActiveRecord::ConnectionAdapters::PostgreSQL::Quoting
+  include ::ActiveRecord::ConnectionAdapters::PostgreSQL::ReferentialIntegrity
+  include ::ActiveRecord::ConnectionAdapters::PostgreSQL::SchemaStatements
+  include ::ActiveRecord::ConnectionAdapters::PostgreSQL::DatabaseStatements
+  def create_unlogged_tables(); end
+
+  def create_unlogged_tables=(val); end
+
+  def create_unlogged_tables?(); end
+
+  def extension_available?(name); end
+
+  def extension_enabled?(name); end
+
+  def initialize(connection, logger, connection_parameters, config); end
+
+  def postgresql_version(); end
+
+  def session_auth=(user); end
+
+  def set_standard_conforming_strings(); end
+
+  def supports_insert_on_conflict?(); end
+
+  def supports_pgcrypto_uuid?(); end
+
+  def supports_ranges?(*args, &block); end
+
+  def use_insert_returning?(); end
+  ADAPTER_NAME = ::T.let(nil, ::T.untyped)
+  CACHED_PLAN_HEURISTIC = ::T.let(nil, ::T.untyped)
+  DEADLOCK_DETECTED = ::T.let(nil, ::T.untyped)
+  FEATURE_NOT_SUPPORTED = ::T.let(nil, ::T.untyped)
+  FOREIGN_KEY_VIOLATION = ::T.let(nil, ::T.untyped)
+  LOCK_NOT_AVAILABLE = ::T.let(nil, ::T.untyped)
+  NATIVE_DATABASE_TYPES = ::T.let(nil, ::T.untyped)
+  NOT_NULL_VIOLATION = ::T.let(nil, ::T.untyped)
+  NUMERIC_VALUE_OUT_OF_RANGE = ::T.let(nil, ::T.untyped)
+  OPERATION_ALIASES = ::T.let(nil, ::T.untyped)
+  QUERY_CANCELED = ::T.let(nil, ::T.untyped)
+  SERIALIZATION_FAILURE = ::T.let(nil, ::T.untyped)
+  UNIQUE_VIOLATION = ::T.let(nil, ::T.untyped)
+  VALUE_LIMIT_VIOLATION = ::T.let(nil, ::T.untyped)
+end
+
+ActiveRecord::ConnectionAdapters::PostgreSQLAdapter::OID = ActiveRecord::ConnectionAdapters::PostgreSQL::OID
+
+class ActiveRecord::ConnectionAdapters::PostgreSQLAdapter::StatementPool
+  def []=(sql, key); end
+
+  def initialize(connection, max); end
+
+  def next_key(); end
+end
+
+class ActiveRecord::ConnectionAdapters::PostgreSQLAdapter::StatementPool
+end
+
+class ActiveRecord::ConnectionAdapters::PostgreSQLAdapter
+  def self.create_unlogged_tables(); end
+
+  def self.create_unlogged_tables=(val); end
+
+  def self.create_unlogged_tables?(); end
+end
+
+ActiveRecord::ConnectionAdapters::PostgreSQLColumn = ActiveRecord::ConnectionAdapters::PostgreSQL::Column
+
+ActiveRecord::ConnectionAdapters::PostgreSQLTypeMetadata = ActiveRecord::ConnectionAdapters::PostgreSQL::TypeMetadata
 
 class ActiveRecord::ConnectionAdapters::PrimaryKeyDefinition
   def name(); end
@@ -13667,134 +14391,6 @@ class ActiveRecord::ConnectionAdapters::ReferenceDefinition
 end
 
 class ActiveRecord::ConnectionAdapters::ReferenceDefinition
-end
-
-module ActiveRecord::ConnectionAdapters::SQLite3
-end
-
-module ActiveRecord::ConnectionAdapters::SQLite3::DatabaseStatements
-  def begin_db_transaction(); end
-
-  def commit_db_transaction(); end
-
-  def exec_delete(sql, name=T.unsafe(nil), binds=T.unsafe(nil)); end
-
-  def exec_query(sql, name=T.unsafe(nil), binds=T.unsafe(nil), prepare: T.unsafe(nil)); end
-
-  def exec_rollback_db_transaction(); end
-
-  def exec_update(sql, name=T.unsafe(nil), binds=T.unsafe(nil)); end
-
-  def execute(sql, name=T.unsafe(nil)); end
-
-  def write_query?(sql); end
-end
-
-module ActiveRecord::ConnectionAdapters::SQLite3::DatabaseStatements
-end
-
-class ActiveRecord::ConnectionAdapters::SQLite3::ExplainPrettyPrinter
-  def pp(result); end
-end
-
-class ActiveRecord::ConnectionAdapters::SQLite3::ExplainPrettyPrinter
-end
-
-module ActiveRecord::ConnectionAdapters::SQLite3::Quoting
-  def column_name_matcher(); end
-
-  def column_name_with_order_matcher(); end
-
-  def quote_column_name(name); end
-
-  def quote_string(s); end
-
-  def quote_table_name(name); end
-
-  def quote_table_name_for_assignment(table, attr); end
-
-  def quoted_binary(value); end
-
-  def quoted_false(); end
-
-  def quoted_time(value); end
-
-  def quoted_true(); end
-
-  def unquoted_false(); end
-
-  def unquoted_true(); end
-end
-
-module ActiveRecord::ConnectionAdapters::SQLite3::Quoting
-end
-
-class ActiveRecord::ConnectionAdapters::SQLite3::SchemaCreation
-end
-
-class ActiveRecord::ConnectionAdapters::SQLite3::SchemaCreation
-end
-
-class ActiveRecord::ConnectionAdapters::SQLite3::SchemaDumper
-end
-
-class ActiveRecord::ConnectionAdapters::SQLite3::SchemaDumper
-end
-
-module ActiveRecord::ConnectionAdapters::SQLite3::SchemaStatements
-  def add_foreign_key(from_table, to_table, **options); end
-
-  def create_schema_dumper(options); end
-
-  def indexes(table_name); end
-
-  def remove_foreign_key(from_table, to_table=T.unsafe(nil), **options); end
-end
-
-module ActiveRecord::ConnectionAdapters::SQLite3::SchemaStatements
-end
-
-class ActiveRecord::ConnectionAdapters::SQLite3::TableDefinition
-end
-
-class ActiveRecord::ConnectionAdapters::SQLite3::TableDefinition
-end
-
-module ActiveRecord::ConnectionAdapters::SQLite3
-end
-
-class ActiveRecord::ConnectionAdapters::SQLite3Adapter
-  include ::ActiveRecord::ConnectionAdapters::SQLite3::Quoting
-  include ::ActiveRecord::ConnectionAdapters::SQLite3::SchemaStatements
-  include ::ActiveRecord::ConnectionAdapters::SQLite3::DatabaseStatements
-  def encoding(); end
-
-  def explain(arel, binds=T.unsafe(nil)); end
-
-  def initialize(connection, logger, connection_options, config); end
-
-  def primary_keys(table_name); end
-
-  def supports_insert_on_conflict?(); end
-  ADAPTER_NAME = ::T.let(nil, ::T.untyped)
-  COLLATE_REGEX = ::T.let(nil, ::T.untyped)
-  NATIVE_DATABASE_TYPES = ::T.let(nil, ::T.untyped)
-end
-
-class ActiveRecord::ConnectionAdapters::SQLite3Adapter::SQLite3Integer
-end
-
-class ActiveRecord::ConnectionAdapters::SQLite3Adapter::SQLite3Integer
-end
-
-class ActiveRecord::ConnectionAdapters::SQLite3Adapter::StatementPool
-end
-
-class ActiveRecord::ConnectionAdapters::SQLite3Adapter::StatementPool
-end
-
-class ActiveRecord::ConnectionAdapters::SQLite3Adapter
-  def self.represent_boolean_as_integer=(value); end
 end
 
 class ActiveRecord::ConnectionAdapters::SavepointTransaction
@@ -14268,6 +14864,8 @@ module ActiveRecord::ConnectionHandling
 
   def lookup_connection_handler(handler_key); end
 
+  def postgresql_connection(config); end
+
   def primary_class?(); end
 
   def remove_connection(name=T.unsafe(nil)); end
@@ -14275,8 +14873,6 @@ module ActiveRecord::ConnectionHandling
   def resolve_config_for_connection(config_or_env); end
 
   def retrieve_connection(); end
-
-  def sqlite3_connection(config); end
 
   def with_handler(handler_key, &blk); end
   DEFAULT_ENV = ::T.let(nil, ::T.untyped)
@@ -14880,10 +15476,8 @@ module ActiveRecord::Import
   ADAPTER_PATH = ::T.let(nil, ::T.untyped)
 end
 
-module ActiveRecord::Import::SQLite3Adapter
-  MIN_VERSION_FOR_IMPORT = ::T.let(nil, ::T.untyped)
+module ActiveRecord::Import::PostgreSQLAdapter
   MIN_VERSION_FOR_UPSERT = ::T.let(nil, ::T.untyped)
-  SQLITE_LIMIT_COMPOUND_SELECT = ::T.let(nil, ::T.untyped)
 end
 
 module ActiveRecord::Inheritance
@@ -15671,6 +16265,22 @@ end
 
 module ActiveRecord::Persistence
   extend ::ActiveSupport::Concern
+end
+
+class ActiveRecord::Point
+  def x(); end
+
+  def x=(_); end
+
+  def y(); end
+
+  def y=(_); end
+end
+
+class ActiveRecord::Point
+  def self.[](*_); end
+
+  def self.members(); end
 end
 
 class ActiveRecord::PredicateBuilder
@@ -23224,6 +23834,10 @@ module Arel
   def self.star(); end
 end
 
+class Arkency::CommandBus
+  VERSION = ::T.let(nil, ::T.untyped)
+end
+
 class Array
   include ::JSON::Ext::Generator::GeneratorMethods::Array
   def abbrev(pattern=T.unsafe(nil)); end
@@ -28498,6 +29112,15 @@ module Capybara
   def self.w3c_click_offset=(*args, &block); end
 end
 
+class CartsAggregate
+  include ::AggregateRoot::AggregateMethods
+end
+
+class CartsAggregate
+  extend ::AggregateRoot::OnDSL
+  extend ::AggregateRoot::Constructor
+end
+
 module ChildProcess
   VERSION = ::T.let(nil, ::T.untyped)
 end
@@ -28629,6 +29252,9 @@ class Crass::Tokenizer
   RE_UNICODE_RANGE_START = ::T.let(nil, ::T.untyped)
   RE_WHITESPACE = ::T.let(nil, ::T.untyped)
   RE_WHITESPACE_ANCHORED = ::T.let(nil, ::T.untyped)
+end
+
+class CreateEventStoreEvents
 end
 
 class DRb::DRbArray
@@ -29098,6 +29724,20 @@ module DidYouMean
 
   def self.formatter=(formatter); end
 end
+
+module Diff::LCS
+  VERSION = ::T.let(nil, ::T.untyped)
+end
+
+Diff::LCS::BalancedCallbacks = Diff::LCS::DefaultCallbacks
+
+class Diff::LCS::Change
+  VALID_ACTIONS = ::T.let(nil, ::T.untyped)
+end
+
+Diff::LCS::Change::IntClass = Integer
+
+Diff::LCS::SequenceCallbacks = Diff::LCS::DefaultCallbacks
 
 module Digest::UUID
   DNS_NAMESPACE = ::T.let(nil, ::T.untyped)
@@ -33708,6 +34348,1935 @@ class OptionParser::ParseError
   def additional=(additional); end
 end
 
+class Order
+  include ::Order::GeneratedAttributeMethods
+  include ::Order::GeneratedAssociationMethods
+end
+
+module Order::GeneratedAssociationMethods
+end
+
+module Order::GeneratedAssociationMethods
+end
+
+module Order::GeneratedAttributeMethods
+end
+
+module Order::GeneratedAttributeMethods
+  extend ::Mutex_m
+end
+
+module PG
+  include ::PG::Constants
+  ERROR_CLASSES = ::T.let(nil, ::T.untyped)
+  REVISION = ::T.let(nil, ::T.untyped)
+  VERSION = ::T.let(nil, ::T.untyped)
+end
+
+class PG::ActiveSqlTransaction
+end
+
+class PG::ActiveSqlTransaction
+end
+
+class PG::AdminShutdown
+end
+
+class PG::AdminShutdown
+end
+
+class PG::AmbiguousAlias
+end
+
+class PG::AmbiguousAlias
+end
+
+class PG::AmbiguousColumn
+end
+
+class PG::AmbiguousColumn
+end
+
+class PG::AmbiguousFunction
+end
+
+class PG::AmbiguousFunction
+end
+
+class PG::AmbiguousParameter
+end
+
+class PG::AmbiguousParameter
+end
+
+class PG::ArraySubscriptError
+end
+
+class PG::ArraySubscriptError
+end
+
+class PG::AssertFailure
+end
+
+class PG::AssertFailure
+end
+
+class PG::BadCopyFileFormat
+end
+
+class PG::BadCopyFileFormat
+end
+
+class PG::BasicTypeMapForQueries
+  DEFAULT_ARRAY_TYPE_MAP = ::T.let(nil, ::T.untyped)
+  DEFAULT_TYPE_MAP = ::T.let(nil, ::T.untyped)
+end
+
+module PG::BasicTypeRegistry
+  CODERS_BY_NAME = ::T.let(nil, ::T.untyped)
+  ValidDirections = ::T.let(nil, ::T.untyped)
+  ValidFormats = ::T.let(nil, ::T.untyped)
+end
+
+class PG::BasicTypeRegistry::CoderMap
+  DONT_QUOTE_TYPES = ::T.let(nil, ::T.untyped)
+end
+
+class PG::BinaryDecoder::Boolean
+  include ::PG::Coder::BinaryFormatting
+  CFUNC = ::T.let(nil, ::T.untyped)
+end
+
+class PG::BinaryDecoder::Bytea
+  include ::PG::Coder::BinaryFormatting
+  CFUNC = ::T.let(nil, ::T.untyped)
+end
+
+class PG::BinaryDecoder::Float
+  include ::PG::Coder::BinaryFormatting
+  CFUNC = ::T.let(nil, ::T.untyped)
+end
+
+class PG::BinaryDecoder::Integer
+  include ::PG::Coder::BinaryFormatting
+  CFUNC = ::T.let(nil, ::T.untyped)
+end
+
+class PG::BinaryDecoder::String
+  include ::PG::Coder::BinaryFormatting
+  CFUNC = ::T.let(nil, ::T.untyped)
+end
+
+class PG::BinaryDecoder::Timestamp
+  include ::PG::Coder::BinaryFormatting
+  CFUNC = ::T.let(nil, ::T.untyped)
+end
+
+class PG::BinaryDecoder::ToBase64
+  include ::PG::Coder::BinaryFormatting
+  CFUNC = ::T.let(nil, ::T.untyped)
+end
+
+class PG::BinaryEncoder::Boolean
+  include ::PG::Coder::BinaryFormatting
+  CFUNC = ::T.let(nil, ::T.untyped)
+end
+
+class PG::BinaryEncoder::Bytea
+  include ::PG::Coder::BinaryFormatting
+  CFUNC = ::T.let(nil, ::T.untyped)
+end
+
+class PG::BinaryEncoder::FromBase64
+  include ::PG::Coder::BinaryFormatting
+  CFUNC = ::T.let(nil, ::T.untyped)
+end
+
+class PG::BinaryEncoder::Int2
+  include ::PG::Coder::BinaryFormatting
+  CFUNC = ::T.let(nil, ::T.untyped)
+end
+
+class PG::BinaryEncoder::Int4
+  include ::PG::Coder::BinaryFormatting
+  CFUNC = ::T.let(nil, ::T.untyped)
+end
+
+class PG::BinaryEncoder::Int8
+  include ::PG::Coder::BinaryFormatting
+  CFUNC = ::T.let(nil, ::T.untyped)
+end
+
+class PG::BinaryEncoder::String
+  include ::PG::Coder::BinaryFormatting
+  CFUNC = ::T.let(nil, ::T.untyped)
+end
+
+class PG::BranchTransactionAlreadyActive
+end
+
+class PG::BranchTransactionAlreadyActive
+end
+
+class PG::CannotCoerce
+end
+
+class PG::CannotCoerce
+end
+
+class PG::CannotConnectNow
+end
+
+class PG::CannotConnectNow
+end
+
+class PG::CantChangeRuntimeParam
+end
+
+class PG::CantChangeRuntimeParam
+end
+
+class PG::CardinalityViolation
+end
+
+class PG::CardinalityViolation
+end
+
+class PG::CaseNotFound
+end
+
+class PG::CaseNotFound
+end
+
+class PG::CharacterNotInRepertoire
+end
+
+class PG::CharacterNotInRepertoire
+end
+
+class PG::CheckViolation
+end
+
+class PG::CheckViolation
+end
+
+class PG::Coder
+  FORMAT_ERROR_MASK = ::T.let(nil, ::T.untyped)
+  FORMAT_ERROR_TO_PARTIAL = ::T.let(nil, ::T.untyped)
+  FORMAT_ERROR_TO_RAISE = ::T.let(nil, ::T.untyped)
+  FORMAT_ERROR_TO_STRING = ::T.let(nil, ::T.untyped)
+  TIMESTAMP_APP_LOCAL = ::T.let(nil, ::T.untyped)
+  TIMESTAMP_APP_UTC = ::T.let(nil, ::T.untyped)
+  TIMESTAMP_DB_LOCAL = ::T.let(nil, ::T.untyped)
+  TIMESTAMP_DB_UTC = ::T.let(nil, ::T.untyped)
+end
+
+module PG::Coder::BinaryFormatting
+  Params = ::T.let(nil, ::T.untyped)
+end
+
+class PG::CollationMismatch
+end
+
+class PG::CollationMismatch
+end
+
+class PG::CompositeDecoder
+end
+
+class PG::CompositeDecoder
+end
+
+class PG::CompositeEncoder
+end
+
+class PG::CompositeEncoder
+end
+
+class PG::ConfigFileError
+end
+
+class PG::ConfigFileError
+end
+
+class PG::ConfigurationLimitExceeded
+end
+
+class PG::ConfigurationLimitExceeded
+end
+
+class PG::Connection
+  include ::PG::Constants
+  CONNECT_ARGUMENT_ORDER = ::T.let(nil, ::T.untyped)
+  REDIRECT_METHODS = ::T.let(nil, ::T.untyped)
+end
+
+class PG::ConnectionBad
+end
+
+class PG::ConnectionBad
+end
+
+class PG::ConnectionDoesNotExist
+end
+
+class PG::ConnectionDoesNotExist
+end
+
+class PG::ConnectionException
+end
+
+class PG::ConnectionException
+end
+
+class PG::ConnectionFailure
+end
+
+class PG::ConnectionFailure
+end
+
+module PG::Constants
+  CONNECTION_AUTH_OK = ::T.let(nil, ::T.untyped)
+  CONNECTION_AWAITING_RESPONSE = ::T.let(nil, ::T.untyped)
+  CONNECTION_BAD = ::T.let(nil, ::T.untyped)
+  CONNECTION_MADE = ::T.let(nil, ::T.untyped)
+  CONNECTION_NEEDED = ::T.let(nil, ::T.untyped)
+  CONNECTION_OK = ::T.let(nil, ::T.untyped)
+  CONNECTION_SETENV = ::T.let(nil, ::T.untyped)
+  CONNECTION_SSL_STARTUP = ::T.let(nil, ::T.untyped)
+  CONNECTION_STARTED = ::T.let(nil, ::T.untyped)
+  INVALID_OID = ::T.let(nil, ::T.untyped)
+  INV_READ = ::T.let(nil, ::T.untyped)
+  INV_WRITE = ::T.let(nil, ::T.untyped)
+  InvalidOid = ::T.let(nil, ::T.untyped)
+  PGRES_BAD_RESPONSE = ::T.let(nil, ::T.untyped)
+  PGRES_COMMAND_OK = ::T.let(nil, ::T.untyped)
+  PGRES_COPY_BOTH = ::T.let(nil, ::T.untyped)
+  PGRES_COPY_IN = ::T.let(nil, ::T.untyped)
+  PGRES_COPY_OUT = ::T.let(nil, ::T.untyped)
+  PGRES_EMPTY_QUERY = ::T.let(nil, ::T.untyped)
+  PGRES_FATAL_ERROR = ::T.let(nil, ::T.untyped)
+  PGRES_NONFATAL_ERROR = ::T.let(nil, ::T.untyped)
+  PGRES_POLLING_FAILED = ::T.let(nil, ::T.untyped)
+  PGRES_POLLING_OK = ::T.let(nil, ::T.untyped)
+  PGRES_POLLING_READING = ::T.let(nil, ::T.untyped)
+  PGRES_POLLING_WRITING = ::T.let(nil, ::T.untyped)
+  PGRES_SINGLE_TUPLE = ::T.let(nil, ::T.untyped)
+  PGRES_TUPLES_OK = ::T.let(nil, ::T.untyped)
+  PG_DIAG_COLUMN_NAME = ::T.let(nil, ::T.untyped)
+  PG_DIAG_CONSTRAINT_NAME = ::T.let(nil, ::T.untyped)
+  PG_DIAG_CONTEXT = ::T.let(nil, ::T.untyped)
+  PG_DIAG_DATATYPE_NAME = ::T.let(nil, ::T.untyped)
+  PG_DIAG_INTERNAL_POSITION = ::T.let(nil, ::T.untyped)
+  PG_DIAG_INTERNAL_QUERY = ::T.let(nil, ::T.untyped)
+  PG_DIAG_MESSAGE_DETAIL = ::T.let(nil, ::T.untyped)
+  PG_DIAG_MESSAGE_HINT = ::T.let(nil, ::T.untyped)
+  PG_DIAG_MESSAGE_PRIMARY = ::T.let(nil, ::T.untyped)
+  PG_DIAG_SCHEMA_NAME = ::T.let(nil, ::T.untyped)
+  PG_DIAG_SEVERITY = ::T.let(nil, ::T.untyped)
+  PG_DIAG_SEVERITY_NONLOCALIZED = ::T.let(nil, ::T.untyped)
+  PG_DIAG_SOURCE_FILE = ::T.let(nil, ::T.untyped)
+  PG_DIAG_SOURCE_FUNCTION = ::T.let(nil, ::T.untyped)
+  PG_DIAG_SOURCE_LINE = ::T.let(nil, ::T.untyped)
+  PG_DIAG_SQLSTATE = ::T.let(nil, ::T.untyped)
+  PG_DIAG_STATEMENT_POSITION = ::T.let(nil, ::T.untyped)
+  PG_DIAG_TABLE_NAME = ::T.let(nil, ::T.untyped)
+  PQERRORS_DEFAULT = ::T.let(nil, ::T.untyped)
+  PQERRORS_SQLSTATE = ::T.let(nil, ::T.untyped)
+  PQERRORS_TERSE = ::T.let(nil, ::T.untyped)
+  PQERRORS_VERBOSE = ::T.let(nil, ::T.untyped)
+  PQPING_NO_ATTEMPT = ::T.let(nil, ::T.untyped)
+  PQPING_NO_RESPONSE = ::T.let(nil, ::T.untyped)
+  PQPING_OK = ::T.let(nil, ::T.untyped)
+  PQPING_REJECT = ::T.let(nil, ::T.untyped)
+  PQSHOW_CONTEXT_ALWAYS = ::T.let(nil, ::T.untyped)
+  PQSHOW_CONTEXT_ERRORS = ::T.let(nil, ::T.untyped)
+  PQSHOW_CONTEXT_NEVER = ::T.let(nil, ::T.untyped)
+  PQTRANS_ACTIVE = ::T.let(nil, ::T.untyped)
+  PQTRANS_IDLE = ::T.let(nil, ::T.untyped)
+  PQTRANS_INERROR = ::T.let(nil, ::T.untyped)
+  PQTRANS_INTRANS = ::T.let(nil, ::T.untyped)
+  PQTRANS_UNKNOWN = ::T.let(nil, ::T.untyped)
+  SEEK_CUR = ::T.let(nil, ::T.untyped)
+  SEEK_END = ::T.let(nil, ::T.untyped)
+  SEEK_SET = ::T.let(nil, ::T.untyped)
+end
+
+class PG::CopyDecoder
+  include ::PG::Coder::BinaryFormatting
+end
+
+class PG::CopyDecoder
+end
+
+class PG::CopyEncoder
+  include ::PG::Coder::BinaryFormatting
+end
+
+class PG::CopyEncoder
+end
+
+class PG::CrashShutdown
+end
+
+class PG::CrashShutdown
+end
+
+class PG::DataCorrupted
+end
+
+class PG::DataCorrupted
+end
+
+class PG::DataException
+end
+
+class PG::DataException
+end
+
+class PG::DatabaseDropped
+end
+
+class PG::DatabaseDropped
+end
+
+class PG::DatatypeMismatch
+end
+
+class PG::DatatypeMismatch
+end
+
+class PG::DatetimeFieldOverflow
+end
+
+class PG::DatetimeFieldOverflow
+end
+
+class PG::DependentObjectsStillExist
+end
+
+class PG::DependentObjectsStillExist
+end
+
+class PG::DependentPrivilegeDescriptorsStillExist
+end
+
+class PG::DependentPrivilegeDescriptorsStillExist
+end
+
+class PG::DiagnosticsException
+end
+
+class PG::DiagnosticsException
+end
+
+class PG::DiskFull
+end
+
+class PG::DiskFull
+end
+
+class PG::DivisionByZero
+end
+
+class PG::DivisionByZero
+end
+
+class PG::DuplicateAlias
+end
+
+class PG::DuplicateAlias
+end
+
+class PG::DuplicateColumn
+end
+
+class PG::DuplicateColumn
+end
+
+class PG::DuplicateCursor
+end
+
+class PG::DuplicateCursor
+end
+
+class PG::DuplicateDatabase
+end
+
+class PG::DuplicateDatabase
+end
+
+class PG::DuplicateFile
+end
+
+class PG::DuplicateFile
+end
+
+class PG::DuplicateFunction
+end
+
+class PG::DuplicateFunction
+end
+
+class PG::DuplicateJsonObjectKeyValue
+end
+
+class PG::DuplicateJsonObjectKeyValue
+end
+
+class PG::DuplicateObject
+end
+
+class PG::DuplicateObject
+end
+
+class PG::DuplicatePstatement
+end
+
+class PG::DuplicatePstatement
+end
+
+class PG::DuplicateSchema
+end
+
+class PG::DuplicateSchema
+end
+
+class PG::DuplicateTable
+end
+
+class PG::DuplicateTable
+end
+
+class PG::EREContainingSqlNotPermitted
+end
+
+class PG::EREContainingSqlNotPermitted
+end
+
+class PG::EREModifyingSqlDataNotPermitted
+end
+
+class PG::EREModifyingSqlDataNotPermitted
+end
+
+class PG::EREProhibitedSqlStatementAttempted
+end
+
+class PG::EREProhibitedSqlStatementAttempted
+end
+
+class PG::EREReadingSqlDataNotPermitted
+end
+
+class PG::EREReadingSqlDataNotPermitted
+end
+
+class PG::ERIEEventTriggerProtocolViolated
+end
+
+class PG::ERIEEventTriggerProtocolViolated
+end
+
+class PG::ERIEInvalidSqlstateReturned
+end
+
+class PG::ERIEInvalidSqlstateReturned
+end
+
+class PG::ERIENullValueNotAllowed
+end
+
+class PG::ERIENullValueNotAllowed
+end
+
+class PG::ERIESrfProtocolViolated
+end
+
+class PG::ERIESrfProtocolViolated
+end
+
+class PG::ERIETriggerProtocolViolated
+end
+
+class PG::ERIETriggerProtocolViolated
+end
+
+class PG::ErrorInAssignment
+end
+
+class PG::ErrorInAssignment
+end
+
+class PG::EscapeCharacterConflict
+end
+
+class PG::EscapeCharacterConflict
+end
+
+class PG::ExclusionViolation
+end
+
+class PG::ExclusionViolation
+end
+
+class PG::ExternalRoutineException
+end
+
+class PG::ExternalRoutineException
+end
+
+class PG::ExternalRoutineInvocationException
+end
+
+class PG::ExternalRoutineInvocationException
+end
+
+class PG::FdwColumnNameNotFound
+end
+
+class PG::FdwColumnNameNotFound
+end
+
+class PG::FdwDynamicParameterValueNeeded
+end
+
+class PG::FdwDynamicParameterValueNeeded
+end
+
+class PG::FdwError
+end
+
+class PG::FdwError
+end
+
+class PG::FdwFunctionSequenceError
+end
+
+class PG::FdwFunctionSequenceError
+end
+
+class PG::FdwInconsistentDescriptorInformation
+end
+
+class PG::FdwInconsistentDescriptorInformation
+end
+
+class PG::FdwInvalidAttributeValue
+end
+
+class PG::FdwInvalidAttributeValue
+end
+
+class PG::FdwInvalidColumnName
+end
+
+class PG::FdwInvalidColumnName
+end
+
+class PG::FdwInvalidColumnNumber
+end
+
+class PG::FdwInvalidColumnNumber
+end
+
+class PG::FdwInvalidDataType
+end
+
+class PG::FdwInvalidDataType
+end
+
+class PG::FdwInvalidDataTypeDescriptors
+end
+
+class PG::FdwInvalidDataTypeDescriptors
+end
+
+class PG::FdwInvalidDescriptorFieldIdentifier
+end
+
+class PG::FdwInvalidDescriptorFieldIdentifier
+end
+
+class PG::FdwInvalidHandle
+end
+
+class PG::FdwInvalidHandle
+end
+
+class PG::FdwInvalidOptionIndex
+end
+
+class PG::FdwInvalidOptionIndex
+end
+
+class PG::FdwInvalidOptionName
+end
+
+class PG::FdwInvalidOptionName
+end
+
+class PG::FdwInvalidStringFormat
+end
+
+class PG::FdwInvalidStringFormat
+end
+
+class PG::FdwInvalidStringLengthOrBufferLength
+end
+
+class PG::FdwInvalidStringLengthOrBufferLength
+end
+
+class PG::FdwInvalidUseOfNullPointer
+end
+
+class PG::FdwInvalidUseOfNullPointer
+end
+
+class PG::FdwNoSchemas
+end
+
+class PG::FdwNoSchemas
+end
+
+class PG::FdwOptionNameNotFound
+end
+
+class PG::FdwOptionNameNotFound
+end
+
+class PG::FdwOutOfMemory
+end
+
+class PG::FdwOutOfMemory
+end
+
+class PG::FdwReplyHandle
+end
+
+class PG::FdwReplyHandle
+end
+
+class PG::FdwSchemaNotFound
+end
+
+class PG::FdwSchemaNotFound
+end
+
+class PG::FdwTableNotFound
+end
+
+class PG::FdwTableNotFound
+end
+
+class PG::FdwTooManyHandles
+end
+
+class PG::FdwTooManyHandles
+end
+
+class PG::FdwUnableToCreateExecution
+end
+
+class PG::FdwUnableToCreateExecution
+end
+
+class PG::FdwUnableToCreateReply
+end
+
+class PG::FdwUnableToCreateReply
+end
+
+class PG::FdwUnableToEstablishConnection
+end
+
+class PG::FdwUnableToEstablishConnection
+end
+
+class PG::FeatureNotSupported
+end
+
+class PG::FeatureNotSupported
+end
+
+class PG::FloatingPointException
+end
+
+class PG::FloatingPointException
+end
+
+class PG::ForeignKeyViolation
+end
+
+class PG::ForeignKeyViolation
+end
+
+class PG::GeneratedAlways
+end
+
+class PG::GeneratedAlways
+end
+
+class PG::GroupingError
+end
+
+class PG::GroupingError
+end
+
+class PG::HeldCursorRequiresSameIsolationLevel
+end
+
+class PG::HeldCursorRequiresSameIsolationLevel
+end
+
+class PG::IdleInTransactionSessionTimeout
+end
+
+class PG::IdleInTransactionSessionTimeout
+end
+
+class PG::InFailedSqlTransaction
+end
+
+class PG::InFailedSqlTransaction
+end
+
+class PG::InappropriateAccessModeForBranchTransaction
+end
+
+class PG::InappropriateAccessModeForBranchTransaction
+end
+
+class PG::InappropriateIsolationLevelForBranchTransaction
+end
+
+class PG::InappropriateIsolationLevelForBranchTransaction
+end
+
+class PG::IndeterminateCollation
+end
+
+class PG::IndeterminateCollation
+end
+
+class PG::IndeterminateDatatype
+end
+
+class PG::IndeterminateDatatype
+end
+
+class PG::IndexCorrupted
+end
+
+class PG::IndexCorrupted
+end
+
+class PG::IndicatorOverflow
+end
+
+class PG::IndicatorOverflow
+end
+
+class PG::InsufficientPrivilege
+end
+
+class PG::InsufficientPrivilege
+end
+
+class PG::InsufficientResources
+end
+
+class PG::InsufficientResources
+end
+
+class PG::IntegrityConstraintViolation
+end
+
+class PG::IntegrityConstraintViolation
+end
+
+class PG::InternalError
+end
+
+class PG::InternalError
+end
+
+class PG::IntervalFieldOverflow
+end
+
+class PG::IntervalFieldOverflow
+end
+
+class PG::InvalidArgumentForLog
+end
+
+class PG::InvalidArgumentForLog
+end
+
+class PG::InvalidArgumentForNthValue
+end
+
+class PG::InvalidArgumentForNthValue
+end
+
+class PG::InvalidArgumentForNtile
+end
+
+class PG::InvalidArgumentForNtile
+end
+
+class PG::InvalidArgumentForPowerFunction
+end
+
+class PG::InvalidArgumentForPowerFunction
+end
+
+class PG::InvalidArgumentForWidthBucketFunction
+end
+
+class PG::InvalidArgumentForWidthBucketFunction
+end
+
+class PG::InvalidAuthorizationSpecification
+end
+
+class PG::InvalidAuthorizationSpecification
+end
+
+class PG::InvalidBinaryRepresentation
+end
+
+class PG::InvalidBinaryRepresentation
+end
+
+class PG::InvalidCatalogName
+end
+
+class PG::InvalidCatalogName
+end
+
+class PG::InvalidChangeOfResultFields
+end
+
+class PG::InvalidChangeOfResultFields
+end
+
+class PG::InvalidCharacterValueForCast
+end
+
+class PG::InvalidCharacterValueForCast
+end
+
+class PG::InvalidColumnDefinition
+end
+
+class PG::InvalidColumnDefinition
+end
+
+class PG::InvalidColumnReference
+end
+
+class PG::InvalidColumnReference
+end
+
+class PG::InvalidCursorDefinition
+end
+
+class PG::InvalidCursorDefinition
+end
+
+class PG::InvalidCursorName
+end
+
+class PG::InvalidCursorName
+end
+
+class PG::InvalidCursorState
+end
+
+class PG::InvalidCursorState
+end
+
+class PG::InvalidDatabaseDefinition
+end
+
+class PG::InvalidDatabaseDefinition
+end
+
+class PG::InvalidDatetimeFormat
+end
+
+class PG::InvalidDatetimeFormat
+end
+
+class PG::InvalidEscapeCharacter
+end
+
+class PG::InvalidEscapeCharacter
+end
+
+class PG::InvalidEscapeOctet
+end
+
+class PG::InvalidEscapeOctet
+end
+
+class PG::InvalidEscapeSequence
+end
+
+class PG::InvalidEscapeSequence
+end
+
+class PG::InvalidForeignKey
+end
+
+class PG::InvalidForeignKey
+end
+
+class PG::InvalidFunctionDefinition
+end
+
+class PG::InvalidFunctionDefinition
+end
+
+class PG::InvalidGrantOperation
+end
+
+class PG::InvalidGrantOperation
+end
+
+class PG::InvalidGrantor
+end
+
+class PG::InvalidGrantor
+end
+
+class PG::InvalidIndicatorParameterValue
+end
+
+class PG::InvalidIndicatorParameterValue
+end
+
+class PG::InvalidJsonText
+end
+
+class PG::InvalidJsonText
+end
+
+class PG::InvalidName
+end
+
+class PG::InvalidName
+end
+
+class PG::InvalidObjectDefinition
+end
+
+class PG::InvalidObjectDefinition
+end
+
+class PG::InvalidParameterValue
+end
+
+class PG::InvalidParameterValue
+end
+
+class PG::InvalidPassword
+end
+
+class PG::InvalidPassword
+end
+
+class PG::InvalidPrecedingOrFollowingSize
+end
+
+class PG::InvalidPrecedingOrFollowingSize
+end
+
+class PG::InvalidPstatementDefinition
+end
+
+class PG::InvalidPstatementDefinition
+end
+
+class PG::InvalidRecursion
+end
+
+class PG::InvalidRecursion
+end
+
+class PG::InvalidRegularExpression
+end
+
+class PG::InvalidRegularExpression
+end
+
+class PG::InvalidResultStatus
+end
+
+class PG::InvalidResultStatus
+end
+
+class PG::InvalidRoleSpecification
+end
+
+class PG::InvalidRoleSpecification
+end
+
+class PG::InvalidRowCountInLimitClause
+end
+
+class PG::InvalidRowCountInLimitClause
+end
+
+class PG::InvalidRowCountInResultOffsetClause
+end
+
+class PG::InvalidRowCountInResultOffsetClause
+end
+
+class PG::InvalidSchemaDefinition
+end
+
+class PG::InvalidSchemaDefinition
+end
+
+class PG::InvalidSchemaName
+end
+
+class PG::InvalidSchemaName
+end
+
+class PG::InvalidSqlJsonSubscript
+end
+
+class PG::InvalidSqlJsonSubscript
+end
+
+class PG::InvalidSqlStatementName
+end
+
+class PG::InvalidSqlStatementName
+end
+
+class PG::InvalidTableDefinition
+end
+
+class PG::InvalidTableDefinition
+end
+
+class PG::InvalidTablesampleArgument
+end
+
+class PG::InvalidTablesampleArgument
+end
+
+class PG::InvalidTablesampleRepeat
+end
+
+class PG::InvalidTablesampleRepeat
+end
+
+class PG::InvalidTextRepresentation
+end
+
+class PG::InvalidTextRepresentation
+end
+
+class PG::InvalidTimeZoneDisplacementValue
+end
+
+class PG::InvalidTimeZoneDisplacementValue
+end
+
+class PG::InvalidTransactionInitiation
+end
+
+class PG::InvalidTransactionInitiation
+end
+
+class PG::InvalidTransactionState
+end
+
+class PG::InvalidTransactionState
+end
+
+class PG::InvalidTransactionTermination
+end
+
+class PG::InvalidTransactionTermination
+end
+
+class PG::InvalidUseOfEscapeCharacter
+end
+
+class PG::InvalidUseOfEscapeCharacter
+end
+
+class PG::InvalidXmlComment
+end
+
+class PG::InvalidXmlComment
+end
+
+class PG::InvalidXmlContent
+end
+
+class PG::InvalidXmlContent
+end
+
+class PG::InvalidXmlDocument
+end
+
+class PG::InvalidXmlDocument
+end
+
+class PG::InvalidXmlProcessingInstruction
+end
+
+class PG::InvalidXmlProcessingInstruction
+end
+
+class PG::IoError
+end
+
+class PG::IoError
+end
+
+class PG::LEInvalidSpecification
+end
+
+class PG::LEInvalidSpecification
+end
+
+class PG::LocatorException
+end
+
+class PG::LocatorException
+end
+
+class PG::LockFileExists
+end
+
+class PG::LockFileExists
+end
+
+class PG::LockNotAvailable
+end
+
+class PG::LockNotAvailable
+end
+
+class PG::MoreThanOneSqlJsonItem
+end
+
+class PG::MoreThanOneSqlJsonItem
+end
+
+class PG::MostSpecificTypeMismatch
+end
+
+class PG::MostSpecificTypeMismatch
+end
+
+class PG::NameTooLong
+end
+
+class PG::NameTooLong
+end
+
+class PG::NoActiveSqlTransaction
+end
+
+class PG::NoActiveSqlTransaction
+end
+
+class PG::NoActiveSqlTransactionForBranchTransaction
+end
+
+class PG::NoActiveSqlTransactionForBranchTransaction
+end
+
+class PG::NoDataFound
+end
+
+class PG::NoDataFound
+end
+
+class PG::NoResultError
+end
+
+class PG::NoResultError
+end
+
+class PG::NoSqlJsonItem
+end
+
+class PG::NoSqlJsonItem
+end
+
+class PG::NonNumericSqlJsonItem
+end
+
+class PG::NonNumericSqlJsonItem
+end
+
+class PG::NonUniqueKeysInAJsonObject
+end
+
+class PG::NonUniqueKeysInAJsonObject
+end
+
+class PG::NonstandardUseOfEscapeCharacter
+end
+
+class PG::NonstandardUseOfEscapeCharacter
+end
+
+class PG::NotAnXmlDocument
+end
+
+class PG::NotAnXmlDocument
+end
+
+class PG::NotNullViolation
+end
+
+class PG::NotNullViolation
+end
+
+class PG::NullValueNoIndicatorParameter
+end
+
+class PG::NullValueNoIndicatorParameter
+end
+
+class PG::NullValueNotAllowed
+end
+
+class PG::NullValueNotAllowed
+end
+
+class PG::NumericValueOutOfRange
+end
+
+class PG::NumericValueOutOfRange
+end
+
+class PG::ObjectInUse
+end
+
+class PG::ObjectInUse
+end
+
+class PG::ObjectNotInPrerequisiteState
+end
+
+class PG::ObjectNotInPrerequisiteState
+end
+
+class PG::OperatorIntervention
+end
+
+class PG::OperatorIntervention
+end
+
+class PG::OutOfMemory
+end
+
+class PG::OutOfMemory
+end
+
+class PG::PlpgsqlError
+end
+
+class PG::PlpgsqlError
+end
+
+class PG::ProgramLimitExceeded
+end
+
+class PG::ProgramLimitExceeded
+end
+
+class PG::ProtocolViolation
+end
+
+class PG::ProtocolViolation
+end
+
+class PG::QueryCanceled
+end
+
+class PG::QueryCanceled
+end
+
+class PG::RaiseException
+end
+
+class PG::RaiseException
+end
+
+class PG::ReadOnlySqlTransaction
+end
+
+class PG::ReadOnlySqlTransaction
+end
+
+class PG::RecordDecoder
+end
+
+class PG::RecordDecoder
+end
+
+class PG::RecordEncoder
+end
+
+class PG::RecordEncoder
+end
+
+class PG::ReservedName
+end
+
+class PG::ReservedName
+end
+
+class PG::RestrictViolation
+end
+
+class PG::RestrictViolation
+end
+
+class PG::Result
+  include ::Enumerable
+  include ::PG::Constants
+end
+
+class PG::SEInvalidSpecification
+end
+
+class PG::SEInvalidSpecification
+end
+
+class PG::SREFunctionExecutedNoReturnStatement
+end
+
+class PG::SREFunctionExecutedNoReturnStatement
+end
+
+class PG::SREModifyingSqlDataNotPermitted
+end
+
+class PG::SREModifyingSqlDataNotPermitted
+end
+
+class PG::SREProhibitedSqlStatementAttempted
+end
+
+class PG::SREProhibitedSqlStatementAttempted
+end
+
+class PG::SREReadingSqlDataNotPermitted
+end
+
+class PG::SREReadingSqlDataNotPermitted
+end
+
+class PG::SavepointException
+end
+
+class PG::SavepointException
+end
+
+class PG::SchemaAndDataStatementMixingNotSupported
+end
+
+class PG::SchemaAndDataStatementMixingNotSupported
+end
+
+class PG::SequenceGeneratorLimitExceeded
+end
+
+class PG::SequenceGeneratorLimitExceeded
+end
+
+class PG::ServerError
+end
+
+class PG::ServerError
+end
+
+class PG::SimpleCoder
+end
+
+class PG::SimpleCoder
+end
+
+class PG::SimpleDecoder
+end
+
+class PG::SimpleDecoder
+end
+
+class PG::SimpleEncoder
+end
+
+class PG::SimpleEncoder
+end
+
+class PG::SingletonSqlJsonItemRequired
+end
+
+class PG::SingletonSqlJsonItemRequired
+end
+
+class PG::SnapshotTooOld
+end
+
+class PG::SnapshotTooOld
+end
+
+class PG::SqlJsonArrayNotFound
+end
+
+class PG::SqlJsonArrayNotFound
+end
+
+class PG::SqlJsonMemberNotFound
+end
+
+class PG::SqlJsonMemberNotFound
+end
+
+class PG::SqlJsonNumberNotFound
+end
+
+class PG::SqlJsonNumberNotFound
+end
+
+class PG::SqlJsonObjectNotFound
+end
+
+class PG::SqlJsonObjectNotFound
+end
+
+class PG::SqlJsonScalarRequired
+end
+
+class PG::SqlJsonScalarRequired
+end
+
+class PG::SqlRoutineException
+end
+
+class PG::SqlRoutineException
+end
+
+class PG::SqlStatementNotYetComplete
+end
+
+class PG::SqlStatementNotYetComplete
+end
+
+class PG::SqlclientUnableToEstablishSqlconnection
+end
+
+class PG::SqlclientUnableToEstablishSqlconnection
+end
+
+class PG::SqlserverRejectedEstablishmentOfSqlconnection
+end
+
+class PG::SqlserverRejectedEstablishmentOfSqlconnection
+end
+
+class PG::StackedDiagnosticsAccessedWithoutActiveHandler
+end
+
+class PG::StackedDiagnosticsAccessedWithoutActiveHandler
+end
+
+class PG::StatementTooComplex
+end
+
+class PG::StatementTooComplex
+end
+
+class PG::StringDataLengthMismatch
+end
+
+class PG::StringDataLengthMismatch
+end
+
+class PG::StringDataRightTruncation
+end
+
+class PG::StringDataRightTruncation
+end
+
+class PG::SubstringError
+end
+
+class PG::SubstringError
+end
+
+class PG::SyntaxError
+end
+
+class PG::SyntaxError
+end
+
+class PG::SyntaxErrorOrAccessRuleViolation
+end
+
+class PG::SyntaxErrorOrAccessRuleViolation
+end
+
+class PG::SystemError
+end
+
+class PG::SystemError
+end
+
+class PG::TRDeadlockDetected
+end
+
+class PG::TRDeadlockDetected
+end
+
+class PG::TRIntegrityConstraintViolation
+end
+
+class PG::TRIntegrityConstraintViolation
+end
+
+class PG::TRSerializationFailure
+end
+
+class PG::TRSerializationFailure
+end
+
+class PG::TRStatementCompletionUnknown
+end
+
+class PG::TRStatementCompletionUnknown
+end
+
+class PG::TextDecoder::Array
+  CFUNC = ::T.let(nil, ::T.untyped)
+end
+
+class PG::TextDecoder::Boolean
+  CFUNC = ::T.let(nil, ::T.untyped)
+end
+
+class PG::TextDecoder::Bytea
+  CFUNC = ::T.let(nil, ::T.untyped)
+end
+
+class PG::TextDecoder::CopyRow
+  CFUNC = ::T.let(nil, ::T.untyped)
+end
+
+class PG::TextDecoder::Date
+end
+
+class PG::TextDecoder::Float
+  CFUNC = ::T.let(nil, ::T.untyped)
+end
+
+class PG::TextDecoder::FromBase64
+  CFUNC = ::T.let(nil, ::T.untyped)
+end
+
+class PG::TextDecoder::Identifier
+  CFUNC = ::T.let(nil, ::T.untyped)
+end
+
+class PG::TextDecoder::Inet
+  CFUNC = ::T.let(nil, ::T.untyped)
+end
+
+class PG::TextDecoder::Integer
+  CFUNC = ::T.let(nil, ::T.untyped)
+end
+
+class PG::TextDecoder::JSON
+end
+
+class PG::TextDecoder::Numeric
+  CFUNC = ::T.let(nil, ::T.untyped)
+end
+
+class PG::TextDecoder::Record
+  CFUNC = ::T.let(nil, ::T.untyped)
+end
+
+class PG::TextDecoder::String
+  CFUNC = ::T.let(nil, ::T.untyped)
+end
+
+class PG::TextDecoder::Timestamp
+  CFUNC = ::T.let(nil, ::T.untyped)
+end
+
+PG::TextDecoder::TimestampWithTimeZone = PG::TextDecoder::Timestamp
+
+PG::TextDecoder::TimestampWithoutTimeZone = PG::TextDecoder::TimestampLocal
+
+class PG::TextEncoder::Array
+  CFUNC = ::T.let(nil, ::T.untyped)
+end
+
+class PG::TextEncoder::Boolean
+  CFUNC = ::T.let(nil, ::T.untyped)
+end
+
+class PG::TextEncoder::Bytea
+  CFUNC = ::T.let(nil, ::T.untyped)
+end
+
+class PG::TextEncoder::CopyRow
+  CFUNC = ::T.let(nil, ::T.untyped)
+end
+
+class PG::TextEncoder::Date
+end
+
+class PG::TextEncoder::Float
+  CFUNC = ::T.let(nil, ::T.untyped)
+end
+
+class PG::TextEncoder::Identifier
+  CFUNC = ::T.let(nil, ::T.untyped)
+end
+
+class PG::TextEncoder::Inet
+end
+
+class PG::TextEncoder::Integer
+  CFUNC = ::T.let(nil, ::T.untyped)
+end
+
+class PG::TextEncoder::JSON
+end
+
+class PG::TextEncoder::Numeric
+  CFUNC = ::T.let(nil, ::T.untyped)
+end
+
+class PG::TextEncoder::QuotedLiteral
+  CFUNC = ::T.let(nil, ::T.untyped)
+end
+
+class PG::TextEncoder::Record
+  CFUNC = ::T.let(nil, ::T.untyped)
+end
+
+class PG::TextEncoder::String
+  CFUNC = ::T.let(nil, ::T.untyped)
+end
+
+class PG::TextEncoder::TimestampUtc
+end
+
+class PG::TextEncoder::TimestampWithTimeZone
+end
+
+class PG::TextEncoder::TimestampWithoutTimeZone
+end
+
+class PG::TextEncoder::ToBase64
+  CFUNC = ::T.let(nil, ::T.untyped)
+end
+
+class PG::TooManyArguments
+end
+
+class PG::TooManyArguments
+end
+
+class PG::TooManyColumns
+end
+
+class PG::TooManyColumns
+end
+
+class PG::TooManyConnections
+end
+
+class PG::TooManyConnections
+end
+
+class PG::TooManyJsonArrayElements
+end
+
+class PG::TooManyJsonArrayElements
+end
+
+class PG::TooManyJsonObjectMembers
+end
+
+class PG::TooManyJsonObjectMembers
+end
+
+class PG::TooManyRows
+end
+
+class PG::TooManyRows
+end
+
+class PG::TransactionResolutionUnknown
+end
+
+class PG::TransactionResolutionUnknown
+end
+
+class PG::TransactionRollback
+end
+
+class PG::TransactionRollback
+end
+
+class PG::TriggeredActionException
+end
+
+class PG::TriggeredActionException
+end
+
+class PG::TriggeredDataChangeViolation
+end
+
+class PG::TriggeredDataChangeViolation
+end
+
+class PG::TrimError
+end
+
+class PG::TrimError
+end
+
+class PG::Tuple
+  include ::Enumerable
+end
+
+class PG::TypeMapAllStrings
+end
+
+class PG::TypeMapAllStrings
+end
+
+class PG::TypeMapByClass
+  include ::PG::TypeMap::DefaultTypeMappable
+end
+
+class PG::TypeMapByColumn
+  include ::PG::TypeMap::DefaultTypeMappable
+end
+
+class PG::TypeMapByMriType
+  include ::PG::TypeMap::DefaultTypeMappable
+end
+
+class PG::TypeMapByOid
+  include ::PG::TypeMap::DefaultTypeMappable
+end
+
+class PG::TypeMapInRuby
+  include ::PG::TypeMap::DefaultTypeMappable
+end
+
+class PG::UnableToSend
+end
+
+class PG::UnableToSend
+end
+
+class PG::UndefinedColumn
+end
+
+class PG::UndefinedColumn
+end
+
+class PG::UndefinedFile
+end
+
+class PG::UndefinedFile
+end
+
+class PG::UndefinedFunction
+end
+
+class PG::UndefinedFunction
+end
+
+class PG::UndefinedObject
+end
+
+class PG::UndefinedObject
+end
+
+class PG::UndefinedParameter
+end
+
+class PG::UndefinedParameter
+end
+
+class PG::UndefinedTable
+end
+
+class PG::UndefinedTable
+end
+
+class PG::UniqueViolation
+end
+
+class PG::UniqueViolation
+end
+
+class PG::UnsafeNewEnumValueUsage
+end
+
+class PG::UnsafeNewEnumValueUsage
+end
+
+class PG::UnterminatedCString
+end
+
+class PG::UnterminatedCString
+end
+
+class PG::UntranslatableCharacter
+end
+
+class PG::UntranslatableCharacter
+end
+
+class PG::WindowingError
+end
+
+class PG::WindowingError
+end
+
+class PG::WithCheckOptionViolation
+end
+
+class PG::WithCheckOptionViolation
+end
+
+class PG::WrongObjectType
+end
+
+class PG::WrongObjectType
+end
+
+class PG::ZeroLengthCharacterString
+end
+
+class PG::ZeroLengthCharacterString
+end
+
 ParseError = Racc::ParseError
 
 class Pathname
@@ -34562,6 +37131,260 @@ end
 class REXML::XPathParser
   def initialize(strict: T.unsafe(nil)); end
   DEBUG = ::T.let(nil, ::T.untyped)
+end
+
+module RSpec
+  MODULES_TO_AUTOLOAD = ::T.let(nil, ::T.untyped)
+end
+
+class RSpec::CallerFilter
+  ADDITIONAL_TOP_LEVEL_FILES = ::T.let(nil, ::T.untyped)
+  IGNORE_REGEX = ::T.let(nil, ::T.untyped)
+  LIB_REGEX = ::T.let(nil, ::T.untyped)
+  RSPEC_LIBS = ::T.let(nil, ::T.untyped)
+end
+
+class RSpec::Core::Configuration
+  DEFAULT_FORMATTER = ::T.let(nil, ::T.untyped)
+  FAILED_STATUS = ::T.let(nil, ::T.untyped)
+  MOCKING_ADAPTERS = ::T.let(nil, ::T.untyped)
+  PASSED_STATUS = ::T.let(nil, ::T.untyped)
+  PENDING_STATUS = ::T.let(nil, ::T.untyped)
+  RAISE_ERROR_WARNING_NOTIFIER = ::T.let(nil, ::T.untyped)
+  UNKNOWN_STATUS = ::T.let(nil, ::T.untyped)
+  VALID_STATUSES = ::T.let(nil, ::T.untyped)
+end
+
+class RSpec::Core::ConfigurationOptions
+  OPTIONS_ORDER = ::T.let(nil, ::T.untyped)
+  UNFORCED_OPTIONS = ::T.let(nil, ::T.untyped)
+  UNPROCESSABLE_OPTIONS = ::T.let(nil, ::T.untyped)
+end
+
+RSpec::Core::Example::AllExceptionsExcludingDangerousOnesOnRubiesThatAllowIt = RSpec::Support::AllExceptionsExceptOnesWeMustNotRescue
+
+class RSpec::Core::ExampleGroup
+  INSTANCE_VARIABLE_TO_IGNORE = ::T.let(nil, ::T.untyped)
+end
+
+RSpec::Core::ExclusionRules = RSpec::Core::FilterRules
+
+class RSpec::Core::FilterRules
+  PROC_HEX_NUMBER = ::T.let(nil, ::T.untyped)
+  PROJECT_DIR = ::T.let(nil, ::T.untyped)
+end
+
+module RSpec::Core::Formatters::ConsoleCodes
+  VT100_CODES = ::T.let(nil, ::T.untyped)
+  VT100_CODE_VALUES = ::T.let(nil, ::T.untyped)
+end
+
+class RSpec::Core::Formatters::DeprecationFormatter
+  DEPRECATION_STREAM_NOTICE = ::T.let(nil, ::T.untyped)
+  RAISE_ERROR_CONFIG_NOTICE = ::T.let(nil, ::T.untyped)
+  TOO_MANY_WARNINGS_NOTICE = ::T.let(nil, ::T.untyped)
+end
+
+class RSpec::Core::Formatters::DeprecationFormatter::DelayedPrinter
+  TOO_MANY_USES_LIMIT = ::T.let(nil, ::T.untyped)
+end
+
+class RSpec::Core::Formatters::ExceptionPresenter
+  PENDING_DETAIL_FORMATTER = ::T.let(nil, ::T.untyped)
+end
+
+module RSpec::Core::Formatters::Helpers
+  DEFAULT_PRECISION = ::T.let(nil, ::T.untyped)
+  SUB_SECOND_PRECISION = ::T.let(nil, ::T.untyped)
+end
+
+class RSpec::Core::Formatters::HtmlPrinter
+  GLOBAL_SCRIPTS = ::T.let(nil, ::T.untyped)
+  GLOBAL_STYLES = ::T.let(nil, ::T.untyped)
+  HTML_HEADER = ::T.let(nil, ::T.untyped)
+  REPORT_HEADER = ::T.let(nil, ::T.untyped)
+end
+
+module RSpec::Core::Formatters::SyntaxHighlighter::CodeRayImplementation
+  RESET_CODE = ::T.let(nil, ::T.untyped)
+end
+
+RSpec::Core::Formatters::SyntaxHighlighter::WindowsImplementation = RSpec::Core::Formatters::SyntaxHighlighter::NoSyntaxHighlightingImplementation
+
+class RSpec::Core::Hooks::HookCollections
+  EMPTY_HOOK_ARRAY = ::T.let(nil, ::T.untyped)
+  HOOK_TYPES = ::T.let(nil, ::T.untyped)
+  SCOPES = ::T.let(nil, ::T.untyped)
+  SCOPE_ALIASES = ::T.let(nil, ::T.untyped)
+end
+
+module RSpec::Core::Metadata
+  RESERVED_KEYS = ::T.let(nil, ::T.untyped)
+end
+
+class RSpec::Core::Ordering::Random
+  MAX_32_BIT = ::T.let(nil, ::T.untyped)
+end
+
+module RSpec::Core::Pending
+  NOT_YET_IMPLEMENTED = ::T.let(nil, ::T.untyped)
+  NO_REASON_GIVEN = ::T.let(nil, ::T.untyped)
+end
+
+class RSpec::Core::Profiler
+  NOTIFICATIONS = ::T.let(nil, ::T.untyped)
+end
+
+class RSpec::Core::Reporter
+  RSPEC_NOTIFICATIONS = ::T.let(nil, ::T.untyped)
+end
+
+module RSpec::Core::ShellEscape
+  SHELLS_ALLOWING_UNQUOTED_IDS = ::T.let(nil, ::T.untyped)
+end
+
+module RSpec::Core::Version
+  STRING = ::T.let(nil, ::T.untyped)
+end
+
+class RSpec::Expectations::Configuration
+  FALSE_POSITIVE_BEHAVIOURS = ::T.let(nil, ::T.untyped)
+end
+
+RSpec::Expectations::LegacyMacherAdapter = RSpec::Expectations::LegacyMatcherAdapter
+
+class RSpec::Expectations::MultipleExpectationsNotMetError
+  include ::RSpec::Core::MultipleExceptionError::InterfaceTag
+end
+
+module RSpec::Expectations::Version
+  STRING = ::T.let(nil, ::T.untyped)
+end
+
+module RSpec::Matchers
+  BE_PREDICATE_REGEX = ::T.let(nil, ::T.untyped)
+  DYNAMIC_MATCHER_REGEX = ::T.let(nil, ::T.untyped)
+  HAS_REGEX = ::T.let(nil, ::T.untyped)
+end
+
+RSpec::Matchers::AliasedNegatedMatcher::DefaultFailureMessages = RSpec::Matchers::BuiltIn::BaseMatcher::DefaultFailureMessages
+
+class RSpec::Matchers::BuiltIn::BaseMatcher
+  UNDEFINED = ::T.let(nil, ::T.untyped)
+end
+
+class RSpec::Matchers::BuiltIn::BePredicate
+  REGEX = ::T.let(nil, ::T.untyped)
+end
+
+class RSpec::Matchers::BuiltIn::Equal
+  LITERAL_SINGLETONS = ::T.let(nil, ::T.untyped)
+end
+
+class RSpec::Matchers::BuiltIn::Has
+  REGEX = ::T.let(nil, ::T.untyped)
+end
+
+class RSpec::Matchers::BuiltIn::RaiseError
+  UndefinedValue = ::T.let(nil, ::T.untyped)
+end
+
+RSpec::Matchers::BuiltIn::SpecificValuesChange::MATCH_ANYTHING = BasicObject
+
+RSpec::Matchers::BuiltIn::StartAndEndWith = RSpec::Matchers::BuiltIn::StartOrEndWith
+
+module RSpec::Matchers::DSL::Macros
+  RAISE_NOTIFIER = ::T.let(nil, ::T.untyped)
+end
+
+class RSpec::Matchers::ExpectedsForMultipleDiffs
+  DEFAULT_DIFF_LABEL = ::T.let(nil, ::T.untyped)
+  DESCRIPTION_MAX_LENGTH = ::T.let(nil, ::T.untyped)
+end
+
+module RSpec::Mocks
+  DEFAULT_CALLBACK_INVOCATION_STRATEGY = ::T.let(nil, ::T.untyped)
+  IGNORED_BACKTRACE_LINE = ::T.let(nil, ::T.untyped)
+end
+
+class RSpec::Mocks::AnyInstance::PositiveExpectationChain
+  ExpectationInvocationOrder = ::T.let(nil, ::T.untyped)
+end
+
+class RSpec::Mocks::AnyInstance::StubChain
+  EmptyInvocationOrder = ::T.let(nil, ::T.untyped)
+  InvocationOrder = ::T.let(nil, ::T.untyped)
+end
+
+class RSpec::Mocks::ArgumentListMatcher
+  MATCH_ALL = ::T.let(nil, ::T.untyped)
+end
+
+class RSpec::Mocks::Matchers::HaveReceived
+  ARGS_CONSTRAINTS = ::T.let(nil, ::T.untyped)
+  CONSTRAINTS = ::T.let(nil, ::T.untyped)
+  COUNT_CONSTRAINTS = ::T.let(nil, ::T.untyped)
+end
+
+class RSpec::Mocks::ObjectReference
+  MODULE_NAME_METHOD = ::T.let(nil, ::T.untyped)
+end
+
+class RSpec::Mocks::Proxy
+  DEFAULT_MESSAGE_EXPECTATION_OPTS = ::T.let(nil, ::T.untyped)
+end
+
+module RSpec::Mocks::Version
+  STRING = ::T.let(nil, ::T.untyped)
+end
+
+RSpec::SharedContext = RSpec::Core::SharedContext
+
+module RSpec::Support
+  DEFAULT_FAILURE_NOTIFIER = ::T.let(nil, ::T.untyped)
+  DEFAULT_WARNING_NOTIFIER = ::T.let(nil, ::T.untyped)
+  KERNEL_METHOD_METHOD = ::T.let(nil, ::T.untyped)
+end
+
+module RSpec::Support::AllExceptionsExceptOnesWeMustNotRescue
+  AVOID_RESCUING = ::T.let(nil, ::T.untyped)
+end
+
+class RSpec::Support::EncodedString
+  REPLACE = ::T.let(nil, ::T.untyped)
+  US_ASCII = ::T.let(nil, ::T.untyped)
+  UTF_8 = ::T.let(nil, ::T.untyped)
+end
+
+class RSpec::Support::MethodSignature
+  INFINITY = ::T.let(nil, ::T.untyped)
+end
+
+class RSpec::Support::Mutex
+  NEW_MUTEX_METHOD = ::T.let(nil, ::T.untyped)
+end
+
+class RSpec::Support::ObjectFormatter
+  ELLIPSIS = ::T.let(nil, ::T.untyped)
+  INSPECTOR_CLASSES = ::T.let(nil, ::T.untyped)
+end
+
+class RSpec::Support::ObjectFormatter::DateTimeInspector
+  FORMAT = ::T.let(nil, ::T.untyped)
+end
+
+class RSpec::Support::ObjectFormatter::TimeInspector
+  FORMAT = ::T.let(nil, ::T.untyped)
+end
+
+class RSpec::Support::ObjectFormatter::UninspectableObjectInspector
+  OBJECT_ID_FORMAT = ::T.let(nil, ::T.untyped)
+end
+
+RSpec::Support::StrictSignatureVerifier = RSpec::Support::MethodSignatureVerifier
+
+module RSpec::Support::Version
+  STRING = ::T.let(nil, ::T.untyped)
 end
 
 module Racc

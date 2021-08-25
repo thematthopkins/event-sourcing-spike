@@ -268,8 +268,8 @@ DEPENDENCIES
   rspec-rails (~> 5.0.0)
   sass-rails (>= 6)
   selenium-webdriver
-  sorbet (= 0.5.9030)
-  sorbet-runtime (= 0.5.9030)
+  sorbet
+  sorbet-runtime
   spring
   spring-watcher-listen (~> 2.0.0)
   sqlite3 (~> 1.4)

@@ -1,3 +1,4 @@
+# typed: strict
 require 'rails_event_store'
 require 'aggregate_root'
 require 'arkency/command_bus'

@@ -771,6 +771,9 @@ end
 class ActiveRecord::ExplainRegistry
   def self.collect?(**, &&); end
 end
+class ActiveRecord::Scoping::ScopeRegistry
+  def self.value_for(**, &&); end
+end
 class ActiveSupport::TestCase < Minitest::Test
   def config; end
   def config=(val); end

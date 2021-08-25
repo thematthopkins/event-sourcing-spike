@@ -1,3 +1,4 @@
 --dir
 .
 --ignore=/vendor/bundle
+--suppress-error-code=2002

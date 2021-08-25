@@ -1,3 +1,4 @@
+# typed: false
 # frozen_string_literal: true
 
 class CreateEventStoreEvents < ActiveRecord::Migration[4.2]

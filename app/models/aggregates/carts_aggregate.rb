@@ -1,3 +1,4 @@
+# typed: false
 class SetShippingAddress < RailsEventStore::Event
 end
 

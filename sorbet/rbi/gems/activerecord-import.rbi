@@ -96,25 +96,26 @@ class ActiveRecord::Import::ValueSetsRecordsParser
   def self.parse(values, options); end
   def values; end
 end
-module ActiveRecord::Import::SQLite3Adapter
+module ActiveRecord::Import::PostgreSQLAdapter
   def add_column_for_on_duplicate_key_update(column, options = nil); end
   def database_version; end
   def duplicate_key_update_error?(exception); end
-  def insert_many(sql, values, _options = nil, *args); end
+  def insert_many(sql, values, options = nil, *args); end
   def next_value_for_sequence(sequence_name); end
   def post_sql_statements(table_name, options); end
-  def pre_sql_statements(options); end
+  def returning_columns(options); end
+  def split_ids_and_results(values, columns, options); end
   def sql_for_conflict_target(args = nil); end
-  def sql_for_default_conflict_target(primary_key); end
-  def sql_for_on_duplicate_key_ignore(*args); end
+  def sql_for_default_conflict_target(table_name, primary_key); end
+  def sql_for_on_duplicate_key_ignore(table_name, *args); end
   def sql_for_on_duplicate_key_update(table_name, *args); end
   def sql_for_on_duplicate_key_update_as_array(table_name, locking_column, arr); end
   def sql_for_on_duplicate_key_update_as_hash(table_name, locking_column, hsh); end
-  def supports_import?; end
   def supports_on_duplicate_key_update?; end
+  def supports_setting_primary_key_of_imported_objects?; end
   include ActiveRecord::Import::ImportSupport
   include ActiveRecord::Import::OnDuplicateKeyUpdateSupport
 end
-class ActiveRecord::ConnectionAdapters::SQLite3Adapter < ActiveRecord::ConnectionAdapters::AbstractAdapter
-  include ActiveRecord::Import::SQLite3Adapter
+class ActiveRecord::ConnectionAdapters::PostgreSQLAdapter < ActiveRecord::ConnectionAdapters::AbstractAdapter
+  include ActiveRecord::Import::PostgreSQLAdapter
 end

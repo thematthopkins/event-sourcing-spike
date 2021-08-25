@@ -7,6 +7,8 @@ module ActiveRecord::Associations::CollectionProxy; end
 module ActiveRecord::Import::Connection; end
 module Mail::CheckDeliveryParams; end
 module Mail::Ruby19; end
+module PG::TextDecoder::TimestampLocal; end
+module PG::TypeMap::DefaultTypeMappable; end
 module Rack::QueryParser::InvalidParameterError; end
 module Rack::QueryParser::ParameterTypeError; end
 module Rack::QueryParser::Params; end

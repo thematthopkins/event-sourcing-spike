@@ -2590,11 +2590,11 @@ module ActiveRecord::ConnectionHandling
   def establish_connection(config_or_env = nil); end
   def flush_idle_connections!(**, &&); end
   def lookup_connection_handler(handler_key); end
+  def postgresql_connection(config); end
   def primary_class?; end
   def remove_connection(name = nil); end
   def resolve_config_for_connection(config_or_env); end
   def retrieve_connection; end
-  def sqlite3_connection(config); end
   def swap_connection_handler(handler, &blk); end
   def with_handler(handler_key, &blk); end
 end
@@ -2928,6 +2928,34 @@ module ActiveRecord::Core::ClassMethods
 end
 class ActiveRecord::Core::InspectionMask < Anonymous_Delegator_17
   def pretty_print(pp); end
+end
+class ActiveRecord::ConnectionAdapters::ConnectionSpecification
+  def adapter_method; end
+  def config; end
+  def initialize(name, config, adapter_method); end
+  def initialize_dup(original); end
+  def name; end
+  def to_hash; end
+end
+class ActiveRecord::ConnectionAdapters::ConnectionSpecification::ConnectionUrlResolver
+  def database_from_path; end
+  def initialize(url); end
+  def query_hash; end
+  def raw_config; end
+  def to_hash; end
+  def uri; end
+  def uri_parser; end
+end
+class ActiveRecord::ConnectionAdapters::ConnectionSpecification::Resolver
+  def build_configuration_sentence; end
+  def configurations; end
+  def initialize(configurations); end
+  def resolve(config_or_env, pool_name = nil); end
+  def resolve_connection(config_or_env, pool_name = nil); end
+  def resolve_hash_connection(spec); end
+  def resolve_symbol_connection(env_name, pool_name); end
+  def resolve_url_connection(url); end
+  def spec(config); end
 end
 class ActiveRecord::ConnectionTimeoutError < ActiveRecord::ConnectionNotEstablished
 end
@@ -4721,34 +4749,6 @@ class ActiveRecord::Associations::CollectionAssociation < ActiveRecord::Associat
   def transaction(*args); end
   def writer(records); end
 end
-class ActiveRecord::ConnectionAdapters::ConnectionSpecification
-  def adapter_method; end
-  def config; end
-  def initialize(name, config, adapter_method); end
-  def initialize_dup(original); end
-  def name; end
-  def to_hash; end
-end
-class ActiveRecord::ConnectionAdapters::ConnectionSpecification::ConnectionUrlResolver
-  def database_from_path; end
-  def initialize(url); end
-  def query_hash; end
-  def raw_config; end
-  def to_hash; end
-  def uri; end
-  def uri_parser; end
-end
-class ActiveRecord::ConnectionAdapters::ConnectionSpecification::Resolver
-  def build_configuration_sentence; end
-  def configurations; end
-  def initialize(configurations); end
-  def resolve(config_or_env, pool_name = nil); end
-  def resolve_connection(config_or_env, pool_name = nil); end
-  def resolve_hash_connection(spec); end
-  def resolve_symbol_connection(env_name, pool_name); end
-  def resolve_url_connection(url); end
-  def spec(config); end
-end
 class ActiveRecord::ConnectionAdapters::StatementPool
   def [](key); end
   def []=(sql, stmt); end
@@ -4762,42 +4762,275 @@ class ActiveRecord::ConnectionAdapters::StatementPool
   def length; end
   include Enumerable
 end
-module ActiveRecord::ConnectionAdapters::SQLite3
+class ActiveRecord::ConnectionAdapters::Column
+  def ==(other); end
+  def bigint?; end
+  def collation; end
+  def comment; end
+  def default; end
+  def default_function; end
+  def encode_with(coder); end
+  def eql?(other); end
+  def has_default?; end
+  def hash; end
+  def human_name; end
+  def init_with(coder); end
+  def initialize(name, default, sql_type_metadata = nil, null = nil, default_function = nil, collation: nil, comment: nil, **arg7); end
+  def limit(**, &&); end
+  def name; end
+  def null; end
+  def precision(**, &&); end
+  def scale(**, &&); end
+  def sql_type(**, &&); end
+  def sql_type_metadata; end
+  def type(**, &&); end
 end
-class ActiveRecord::ConnectionAdapters::SQLite3::ExplainPrettyPrinter
-  def pp(result); end
+class ActiveRecord::ConnectionAdapters::NullColumn < ActiveRecord::ConnectionAdapters::Column
+  def initialize(name); end
 end
-module ActiveRecord::ConnectionAdapters::SQLite3::Quoting
-  def _type_cast(value); end
-  def column_name_matcher; end
-  def column_name_with_order_matcher; end
-  def quote_column_name(name); end
-  def quote_string(s); end
-  def quote_table_name(name); end
-  def quote_table_name_for_assignment(table, attr); end
-  def quoted_binary(value); end
-  def quoted_false; end
-  def quoted_time(value); end
-  def quoted_true; end
-  def unquoted_false; end
-  def unquoted_true; end
+module ActiveRecord::ConnectionAdapters::PostgreSQL
 end
-module ActiveRecord::ConnectionAdapters::SQLite3::DatabaseStatements
+class ActiveRecord::ConnectionAdapters::PostgreSQL::Column < ActiveRecord::ConnectionAdapters::Column
+  def array; end
+  def array?; end
+  def fmod(**, &&); end
+  def initialize(*arg0, serial: nil, **arg2); end
+  def oid(**, &&); end
+  def serial?; end
+  def sql_type; end
+end
+module ActiveRecord::ConnectionAdapters::PostgreSQL::DatabaseStatements
   def begin_db_transaction; end
-  def build_fixture_statements(fixture_set); end
-  def build_truncate_statement(table_name); end
+  def begin_isolated_db_transaction(isolation); end
+  def build_truncate_statements(table_names); end
   def commit_db_transaction; end
   def exec_delete(sql, name = nil, binds = nil); end
+  def exec_insert(sql, name = nil, binds = nil, pk = nil, sequence_name = nil); end
   def exec_query(sql, name = nil, binds = nil, prepare: nil); end
   def exec_rollback_db_transaction; end
   def exec_update(sql, name = nil, binds = nil); end
   def execute(sql, name = nil); end
   def execute_batch(statements, name = nil); end
-  def last_inserted_id(result); end
+  def explain(arel, binds = nil); end
+  def last_insert_id_result(sequence_name); end
+  def query(sql, name = nil); end
+  def result_as_array(res); end
+  def sql_for_insert(sql, pk, binds); end
+  def suppress_composite_primary_key(pk); end
   def write_query?(sql); end
 end
-class ActiveRecord::ConnectionAdapters::SQLite3::SchemaCreation < ActiveRecord::ConnectionAdapters::AbstractAdapter::SchemaCreation
+class ActiveRecord::ConnectionAdapters::PostgreSQL::ExplainPrettyPrinter
+  def pp(result); end
+end
+module ActiveRecord::ConnectionAdapters::PostgreSQL::OID
+end
+class ActiveRecord::ConnectionAdapters::PostgreSQL::OID::Array < ActiveModel::Type::Value
+  def ==(other); end
+  def cast(value); end
+  def changed_in_place?(raw_old_value, new_value); end
+  def delimiter; end
+  def deserialize(value); end
+  def force_equality?(value); end
+  def initialize(subtype, delimiter = nil); end
+  def limit(**, &&); end
+  def map(value, &block); end
+  def precision(**, &&); end
+  def scale(**, &&); end
+  def serialize(value); end
+  def subtype; end
+  def type(**, &&); end
+  def type_cast_array(value, method); end
+  def type_cast_for_schema(value); end
+  def user_input_in_time_zone(**, &&); end
+  include ActiveModel::Type::Helpers::Mutable
+end
+class ActiveRecord::ConnectionAdapters::PostgreSQL::OID::Array::Data < Struct
+  def encoder; end
+  def encoder=(_); end
+  def self.[](*arg0); end
+  def self.inspect; end
+  def self.members; end
+  def self.new(*arg0); end
+  def values; end
+  def values=(_); end
+end
+class ActiveRecord::ConnectionAdapters::PostgreSQL::OID::Bit < ActiveModel::Type::Value
+  def cast_value(value); end
+  def serialize(value); end
+  def type; end
+end
+class ActiveRecord::ConnectionAdapters::PostgreSQL::OID::Bit::Data
+  def binary?; end
+  def hex?; end
+  def initialize(value); end
+  def to_s; end
+  def value; end
+end
+class ActiveRecord::ConnectionAdapters::PostgreSQL::OID::BitVarying < ActiveRecord::ConnectionAdapters::PostgreSQL::OID::Bit
+  def type; end
+end
+class ActiveRecord::ConnectionAdapters::PostgreSQL::OID::Bytea < ActiveModel::Type::Binary
+  def deserialize(value); end
+end
+class ActiveRecord::ConnectionAdapters::PostgreSQL::OID::Cidr < ActiveModel::Type::Value
+  def cast_value(value); end
+  def serialize(value); end
+  def type; end
+  def type_cast_for_schema(value); end
+end
+class ActiveRecord::ConnectionAdapters::PostgreSQL::OID::Date < ActiveRecord::Type::Date
+  def cast_value(value); end
+end
+class ActiveRecord::ConnectionAdapters::PostgreSQL::OID::DateTime < ActiveRecord::Type::DateTime
+  def cast_value(value); end
+  def type_cast_for_schema(value); end
+end
+class ActiveRecord::ConnectionAdapters::PostgreSQL::OID::Decimal < ActiveModel::Type::Decimal
+  def infinity(options = nil); end
+end
+class ActiveRecord::ConnectionAdapters::PostgreSQL::OID::Enum < ActiveModel::Type::Value
+  def cast_value(value); end
+  def type; end
+end
+class ActiveRecord::ConnectionAdapters::PostgreSQL::OID::Hstore < ActiveModel::Type::Value
+  def accessor; end
+  def changed_in_place?(raw_old_value, new_value); end
+  def deserialize(value); end
+  def escape_hstore(value); end
+  def serialize(value); end
+  def type; end
+  include ActiveModel::Type::Helpers::Mutable
+end
+class ActiveRecord::ConnectionAdapters::PostgreSQL::OID::Inet < ActiveRecord::ConnectionAdapters::PostgreSQL::OID::Cidr
+  def type; end
+end
+class ActiveRecord::ConnectionAdapters::PostgreSQL::OID::Jsonb < ActiveRecord::Type::Json
+  def type; end
+end
+class ActiveRecord::ConnectionAdapters::PostgreSQL::OID::Money < ActiveModel::Type::Decimal
+  def cast_value(value); end
+  def scale; end
+  def type; end
+end
+class ActiveRecord::ConnectionAdapters::PostgreSQL::OID::Oid < ActiveRecord::Type::UnsignedInteger
+  def type; end
+end
+class ActiveRecord::Point < Struct
+  def self.[](*arg0); end
+  def self.inspect; end
+  def self.members; end
+  def self.new(*arg0); end
+  def x; end
+  def x=(_); end
+  def y; end
+  def y=(_); end
+end
+class ActiveRecord::ConnectionAdapters::PostgreSQL::OID::Point < ActiveModel::Type::Value
+  def build_point(x, y); end
+  def cast(value); end
+  def number_for_point(number); end
+  def serialize(value); end
+  def type; end
+  def type_cast_for_schema(value); end
+  include ActiveModel::Type::Helpers::Mutable
+end
+class ActiveRecord::ConnectionAdapters::PostgreSQL::OID::LegacyPoint < ActiveModel::Type::Value
+  def cast(value); end
+  def number_for_point(number); end
+  def serialize(value); end
+  def type; end
+  include ActiveModel::Type::Helpers::Mutable
+end
+class ActiveRecord::ConnectionAdapters::PostgreSQL::OID::Range < ActiveModel::Type::Value
+  def ==(other); end
+  def cast_value(value); end
+  def extract_bounds(value); end
+  def force_equality?(value); end
+  def infinity(negative: nil); end
+  def infinity?(value); end
+  def initialize(subtype, type = nil); end
+  def map(value); end
+  def serialize(value); end
+  def subtype; end
+  def type; end
+  def type_cast_for_schema(value); end
+  def type_cast_single(value); end
+  def type_cast_single_for_database(value); end
+  def unquote(value); end
+  def user_input_in_time_zone(**, &&); end
+end
+class ActiveRecord::ConnectionAdapters::PostgreSQL::OID::SpecializedString < ActiveModel::Type::String
+  def initialize(type, **options); end
+  def type; end
+end
+class ActiveRecord::ConnectionAdapters::PostgreSQL::OID::Uuid < ActiveModel::Type::Value
+  def cast_value(value); end
+  def serialize(value); end
+  def type; end
+end
+class ActiveRecord::ConnectionAdapters::PostgreSQL::OID::Vector < ActiveModel::Type::Value
+  def cast(value); end
+  def delim; end
+  def initialize(delim, subtype); end
+  def subtype; end
+end
+class ActiveRecord::ConnectionAdapters::PostgreSQL::OID::Xml < ActiveModel::Type::String
+  def serialize(value); end
+  def type; end
+end
+class ActiveRecord::ConnectionAdapters::PostgreSQL::OID::Xml::Data
+  def initialize(value); end
+  def to_s; end
+end
+class ActiveRecord::ConnectionAdapters::PostgreSQL::OID::TypeMapInitializer
+  def alias_type(oid, target); end
+  def assert_valid_registration(oid, oid_type); end
+  def initialize(store); end
+  def query_conditions_for_initial_load; end
+  def register(oid, oid_type = nil, &block); end
+  def register_array_type(row); end
+  def register_composite_type(row); end
+  def register_domain_type(row); end
+  def register_enum_type(row); end
+  def register_mapped_type(row); end
+  def register_range_type(row); end
+  def register_with_subtype(oid, target_oid); end
+  def run(records); end
+end
+module ActiveRecord::ConnectionAdapters::PostgreSQL::Quoting
+  def _quote(value); end
+  def _type_cast(value); end
+  def column_name_matcher; end
+  def column_name_with_order_matcher; end
+  def determine_encoding_of_strings_in_array(value); end
+  def encode_array(array_data); end
+  def encode_range(range); end
+  def escape_bytea(value); end
+  def infinity?(value); end
+  def lookup_cast_type(sql_type); end
+  def lookup_cast_type_from_column(column); end
+  def quote_column_name(name); end
+  def quote_default_expression(value, column); end
+  def quote_schema_name(name); end
+  def quote_string(s); end
+  def quote_table_name(name); end
+  def quote_table_name_for_assignment(table, attr); end
+  def quoted_binary(value); end
+  def quoted_date(value); end
+  def type_cast_array(values); end
+  def type_cast_range_value(value); end
+  def unescape_bytea(value); end
+end
+module ActiveRecord::ConnectionAdapters::PostgreSQL::ReferentialIntegrity
+  def disable_referential_integrity; end
+end
+class ActiveRecord::ConnectionAdapters::PostgreSQL::SchemaCreation < ActiveRecord::ConnectionAdapters::AbstractAdapter::SchemaCreation
   def add_column_options!(sql, options); end
+  def table_modifier_in_create(o); end
+  def visit_AddForeignKey(o); end
+  def visit_AlterTable(o); end
+  def visit_ChangeColumnDefinition(o); end
+  def visit_ValidateConstraint(name); end
 end
 class ActiveRecord::ConnectionAdapters::IndexDefinition
   def columns; end
@@ -5011,95 +5244,281 @@ class ActiveRecord::ConnectionAdapters::Table
   extend ActiveRecord::ConnectionAdapters::ColumnMethods::ClassMethods
   include ActiveRecord::ConnectionAdapters::ColumnMethods
 end
-class ActiveRecord::ConnectionAdapters::SQLite3::TableDefinition < ActiveRecord::ConnectionAdapters::TableDefinition
-  def belongs_to(*args, **options); end
-  def integer_like_primary_key_type(type, options); end
-  def references(*args, **options); end
+module ActiveRecord::ConnectionAdapters::PostgreSQL::ColumnMethods
+  def primary_key(name, type = nil, **options); end
+  extend ActiveSupport::Concern
 end
-class ActiveRecord::ConnectionAdapters::SQLite3::SchemaDumper < ActiveRecord::ConnectionAdapters::SchemaDumper
+class ActiveRecord::ConnectionAdapters::PostgreSQL::TableDefinition < ActiveRecord::ConnectionAdapters::TableDefinition
+  def bigserial(*names, **options); end
+  def bit(*names, **options); end
+  def bit_varying(*names, **options); end
+  def box(*names, **options); end
+  def cidr(*names, **options); end
+  def circle(*names, **options); end
+  def citext(*names, **options); end
+  def daterange(*names, **options); end
+  def hstore(*names, **options); end
+  def inet(*names, **options); end
+  def initialize(*arg0, **arg1); end
+  def int4range(*names, **options); end
+  def int8range(*names, **options); end
+  def integer_like_primary_key_type(type, options); end
+  def interval(*names, **options); end
+  def jsonb(*names, **options); end
+  def line(*names, **options); end
+  def lseg(*names, **options); end
+  def ltree(*names, **options); end
+  def macaddr(*names, **options); end
+  def money(*names, **options); end
+  def numrange(*names, **options); end
+  def oid(*names, **options); end
+  def path(*names, **options); end
+  def point(*names, **options); end
+  def polygon(*names, **options); end
+  def serial(*names, **options); end
+  def tsrange(*names, **options); end
+  def tstzrange(*names, **options); end
+  def tsvector(*names, **options); end
+  def unlogged; end
+  def uuid(*names, **options); end
+  def xml(*names, **options); end
+  include ActiveRecord::ConnectionAdapters::PostgreSQL::ColumnMethods
+end
+class ActiveRecord::ConnectionAdapters::PostgreSQL::Table < ActiveRecord::ConnectionAdapters::Table
+  def bigserial(*names, **options); end
+  def bit(*names, **options); end
+  def bit_varying(*names, **options); end
+  def box(*names, **options); end
+  def cidr(*names, **options); end
+  def circle(*names, **options); end
+  def citext(*names, **options); end
+  def daterange(*names, **options); end
+  def hstore(*names, **options); end
+  def inet(*names, **options); end
+  def int4range(*names, **options); end
+  def int8range(*names, **options); end
+  def interval(*names, **options); end
+  def jsonb(*names, **options); end
+  def line(*names, **options); end
+  def lseg(*names, **options); end
+  def ltree(*names, **options); end
+  def macaddr(*names, **options); end
+  def money(*names, **options); end
+  def numrange(*names, **options); end
+  def oid(*names, **options); end
+  def path(*names, **options); end
+  def point(*names, **options); end
+  def polygon(*names, **options); end
+  def serial(*names, **options); end
+  def tsrange(*names, **options); end
+  def tstzrange(*names, **options); end
+  def tsvector(*names, **options); end
+  def uuid(*names, **options); end
+  def xml(*names, **options); end
+  include ActiveRecord::ConnectionAdapters::PostgreSQL::ColumnMethods
+end
+class ActiveRecord::ConnectionAdapters::PostgreSQL::AlterTable < ActiveRecord::ConnectionAdapters::AlterTable
+  def constraint_validations; end
+  def initialize(td); end
+  def validate_constraint(name); end
+end
+class ActiveRecord::ConnectionAdapters::PostgreSQL::SchemaDumper < ActiveRecord::ConnectionAdapters::SchemaDumper
   def default_primary_key?(column); end
   def explicit_primary_key_default?(column); end
+  def extensions(stream); end
+  def prepare_column_options(column); end
+  def schema_expression(column); end
+  def schema_type(column); end
 end
-module ActiveRecord::ConnectionAdapters::SQLite3::SchemaStatements
-  def add_foreign_key(from_table, to_table, **options); end
+module ActiveRecord::ConnectionAdapters::PostgreSQL::SchemaStatements
+  def add_column(table_name, column_name, type, **options); end
+  def add_column_for_alter(table_name, column_name, type, **options); end
+  def add_index(table_name, column_name, options = nil); end
+  def add_index_opclass(quoted_columns, **options); end
+  def add_options_for_index_columns(quoted_columns, **options); end
+  def change_column(table_name, column_name, type, options = nil); end
+  def change_column_comment(table_name, column_name, comment_or_changes); end
+  def change_column_default(table_name, column_name, default_or_changes); end
+  def change_column_default_for_alter(table_name, column_name, default_or_changes); end
+  def change_column_for_alter(table_name, column_name, type, options = nil); end
+  def change_column_null(table_name, column_name, null, default = nil); end
+  def change_column_null_for_alter(table_name, column_name, null, default = nil); end
+  def change_table_comment(table_name, comment_or_changes); end
+  def client_min_messages; end
+  def client_min_messages=(level); end
+  def collation; end
+  def columns_for_distinct(columns, orders); end
+  def create_alter_table(name); end
+  def create_database(name, options = nil); end
+  def create_schema(schema_name); end
   def create_schema_dumper(options); end
   def create_table_definition(*args, **options); end
+  def ctype; end
+  def current_database; end
+  def current_schema; end
   def data_source_sql(name = nil, type: nil); end
+  def default_sequence_name(table_name, pk = nil); end
+  def drop_database(name); end
+  def drop_schema(schema_name, options = nil); end
+  def drop_table(table_name, options = nil); end
+  def encoding; end
+  def extract_foreign_key_action(specifier); end
+  def extract_schema_qualified_name(string); end
+  def fetch_type_metadata(column_name, sql_type, oid, fmod); end
+  def foreign_keys(table_name); end
+  def foreign_table_exists?(table_name); end
+  def foreign_tables; end
+  def index_name_exists?(table_name, index_name); end
   def indexes(table_name); end
   def new_column_from_field(table_name, field); end
-  def quoted_scope(name = nil, type: nil); end
-  def remove_foreign_key(from_table, to_table = nil, **options); end
-  def schema_creation; end
-end
-class ActiveRecord::ConnectionAdapters::SQLite3Adapter < ActiveRecord::ConnectionAdapters::AbstractAdapter
-  def active?; end
-  def add_belongs_to(table_name, ref_name, **options); end
-  def add_column(table_name, column_name, type, **options); end
-  def add_reference(table_name, ref_name, **options); end
-  def allowed_index_name_length; end
-  def alter_table(table_name, foreign_keys = nil, **options); end
-  def arel_visitor; end
-  def bind_params_length; end
-  def build_insert_sql(insert); end
-  def build_statement_pool; end
-  def change_column(table_name, column_name, type, options = nil); end
-  def change_column_default(table_name, column_name, default_or_changes); end
-  def change_column_null(table_name, column_name, null, default = nil); end
-  def check_version; end
-  def column_definitions(table_name); end
-  def configure_connection; end
-  def connect; end
-  def copy_table(from, to, options = nil); end
-  def copy_table_contents(from, to, columns, rename = nil); end
-  def copy_table_indexes(from, to, rename = nil); end
-  def disable_referential_integrity; end
-  def disconnect!; end
-  def encoding; end
-  def explain(arel, binds = nil); end
-  def foreign_keys(table_name); end
-  def get_database_version; end
-  def initialize(connection, logger, connection_options, config); end
-  def initialize_type_map(m = nil); end
-  def invalid_alter_table_type?(type, options); end
-  def move_table(from, to, options = nil, &block); end
-  def native_database_types; end
+  def pk_and_sequence_for(table); end
   def primary_keys(table_name); end
-  def reconnect!; end
-  def remove_column(table_name, column_name, type = nil, **options); end
+  def quoted_scope(name = nil, type: nil); end
+  def recreate_database(name, options = nil); end
   def remove_index(table_name, options = nil); end
   def rename_column(table_name, column_name, new_column_name); end
+  def rename_index(table_name, old_name, new_name); end
   def rename_table(table_name, new_name); end
-  def requires_reloading?; end
+  def reset_pk_sequence!(table, pk = nil, sequence = nil); end
+  def schema_creation; end
+  def schema_exists?(name); end
+  def schema_names; end
+  def schema_search_path; end
+  def schema_search_path=(schema_csv); end
+  def sequence_name_from_parts(table_name, column_name, suffix); end
+  def serial_sequence(table, column); end
+  def set_pk_sequence!(table, value); end
+  def table_comment(table_name); end
+  def table_options(table_name); end
+  def type_to_sql(type, limit: nil, precision: nil, scale: nil, array: nil, **arg5); end
+  def update_table_definition(table_name, base); end
+  def validate_constraint(table_name, constraint_name); end
+  def validate_foreign_key(from_table, to_table = nil, **options); end
+end
+class ActiveRecord::ConnectionAdapters::PostgreSQL::TypeMetadata < Anonymous_Delegator_20
+  def ==(other); end
+  def eql?(other); end
+  def fmod; end
+  def hash; end
+  def initialize(type_metadata, oid: nil, fmod: nil); end
+  def oid; end
+end
+class ActiveRecord::ConnectionAdapters::PostgreSQL::Name
+  def ==(o); end
+  def eql?(o); end
+  def hash; end
+  def identifier; end
+  def initialize(schema, identifier); end
+  def parts; end
+  def quoted; end
+  def schema; end
+  def to_s; end
+  def unquote(part); end
+end
+module ActiveRecord::ConnectionAdapters::PostgreSQL::Utils
+  def extract_schema_qualified_name(string); end
+  extend ActiveRecord::ConnectionAdapters::PostgreSQL::Utils
+end
+class PG::Connection
+end
+class ActiveRecord::ConnectionAdapters::PostgreSQLAdapter < ActiveRecord::ConnectionAdapters::AbstractAdapter
+  def active?; end
+  def add_pg_decoders; end
+  def add_pg_encoders; end
+  def arel_visitor; end
+  def build_insert_sql(insert); end
+  def build_statement_pool; end
+  def can_perform_case_insensitive_comparison_for?(column); end
+  def check_version; end
+  def column_definitions(table_name); end
+  def column_name_for_operation(operation, node); end
+  def configure_connection; end
+  def connect; end
+  def construct_coder(row, coder_class); end
+  def create_unlogged_tables; end
+  def create_unlogged_tables=(val); end
+  def create_unlogged_tables?; end
+  def default_index_type?(index); end
+  def disable_extension(name); end
+  def discard!; end
+  def disconnect!; end
+  def enable_extension(name); end
+  def exec_cache(sql, name, binds); end
+  def exec_no_cache(sql, name, binds); end
+  def execute_and_clear(sql, name, binds, prepare: nil); end
+  def extension_available?(name); end
+  def extension_enabled?(name); end
+  def extensions; end
+  def extract_default_function(default_value, default); end
+  def extract_table_ref_from_insert_sql(sql); end
+  def extract_value_from_default(default); end
+  def get_advisory_lock(lock_id); end
+  def get_database_version; end
+  def get_oid_type(oid, fmod, column_name, sql_type = nil); end
+  def has_default_function?(default_value, default); end
+  def in_transaction?; end
+  def index_algorithms; end
+  def initialize(connection, logger, connection_parameters, config); end
+  def initialize_type_map(m = nil); end
+  def is_cached_plan_failure?(e); end
+  def load_additional_types(oids = nil); end
+  def max_identifier_length; end
+  def native_database_types; end
+  def postgresql_version; end
+  def prepare_statement(sql, binds); end
+  def reconnect!; end
+  def release_advisory_lock(lock_id); end
+  def reset!; end
+  def self.create_unlogged_tables; end
+  def self.create_unlogged_tables=(val); end
+  def self.create_unlogged_tables?; end
   def self.database_exists?(config); end
-  def self.represent_boolean_as_integer=(value); end
+  def session_auth=(user); end
+  def set_standard_conforming_strings; end
+  def sql_key(sql); end
+  def supports_advisory_locks?; end
+  def supports_bulk_alter?; end
+  def supports_comments?; end
   def supports_common_table_expressions?; end
   def supports_datetime_with_precision?; end
   def supports_ddl_transactions?; end
   def supports_explain?; end
   def supports_expression_index?; end
+  def supports_extensions?; end
   def supports_foreign_keys?; end
+  def supports_foreign_tables?; end
   def supports_index_sort_order?; end
   def supports_insert_conflict_target?; end
   def supports_insert_on_conflict?; end
   def supports_insert_on_duplicate_skip?; end
   def supports_insert_on_duplicate_update?; end
+  def supports_insert_returning?; end
   def supports_json?; end
   def supports_lazy_transactions?; end
+  def supports_materialized_views?; end
+  def supports_optimizer_hints?; end
   def supports_partial_index?; end
+  def supports_partitioned_indexes?; end
+  def supports_pgcrypto_uuid?; end
+  def supports_ranges?(*args, &block); end
   def supports_savepoints?; end
+  def supports_transaction_isolation?; end
+  def supports_validate_constraints?; end
   def supports_views?; end
-  def table_structure(table_name); end
-  def table_structure_with_collation(table_name, basic_structure); end
   def translate_exception(exception, message:, sql:, binds:); end
-  include ActiveRecord::ConnectionAdapters::SQLite3::DatabaseStatements
-  include ActiveRecord::ConnectionAdapters::SQLite3::Quoting
-  include ActiveRecord::ConnectionAdapters::SQLite3::SchemaStatements
+  def update_typemap_for_default_timezone; end
+  def use_insert_returning?; end
+  include ActiveRecord::ConnectionAdapters::PostgreSQL::DatabaseStatements
+  include ActiveRecord::ConnectionAdapters::PostgreSQL::Quoting
+  include ActiveRecord::ConnectionAdapters::PostgreSQL::ReferentialIntegrity
+  include ActiveRecord::ConnectionAdapters::PostgreSQL::SchemaStatements
 end
-class ActiveRecord::ConnectionAdapters::SQLite3Adapter::StatementPool < ActiveRecord::ConnectionAdapters::StatementPool
-  def dealloc(stmt); end
-end
-class ActiveRecord::ConnectionAdapters::SQLite3Adapter::SQLite3Integer < ActiveModel::Type::Integer
-  def _limit; end
+class ActiveRecord::ConnectionAdapters::PostgreSQLAdapter::StatementPool < ActiveRecord::ConnectionAdapters::StatementPool
+  def []=(sql, key); end
+  def connection_active?; end
+  def dealloc(key); end
+  def initialize(connection, max); end
+  def next_key; end
 end
 module ActiveRecord::Railties
 end
@@ -5150,6 +5569,56 @@ end
 class ActiveRecord::Schema < ActiveRecord::Migration::Current
   def define(info, &block); end
   def self.define(info = nil, &block); end
+end
+module ActiveRecord::Migration::Compatibility
+  def self.find(version); end
+end
+class ActiveRecord::Migration::Compatibility::V5_2 < ActiveRecord::Migration::Current
+  def add_timestamps(table_name, **options); end
+  def change_table(table_name, **options); end
+  def command_recorder; end
+  def compatible_table_definition(t); end
+  def create_join_table(table_1, table_2, **options); end
+  def create_table(table_name, **options); end
+end
+module ActiveRecord::Migration::Compatibility::V5_2::TableDefinition
+  def timestamps(**options); end
+end
+module ActiveRecord::Migration::Compatibility::V5_2::CommandRecorder
+  def invert_change_column_comment(args); end
+  def invert_change_table_comment(args); end
+  def invert_transaction(args, &block); end
+end
+class ActiveRecord::Migration::Compatibility::V5_1 < ActiveRecord::Migration::Compatibility::V5_2
+  def change_column(table_name, column_name, type, options = nil); end
+  def create_table(table_name, **options); end
+end
+class ActiveRecord::Migration::Compatibility::V5_0 < ActiveRecord::Migration::Compatibility::V5_1
+  def add_belongs_to(table_name, ref_name, **options); end
+  def add_column(table_name, column_name, type, **options); end
+  def add_reference(table_name, ref_name, **options); end
+  def compatible_table_definition(t); end
+  def create_join_table(table_1, table_2, column_options: nil, **options); end
+  def create_table(table_name, **options); end
+end
+module ActiveRecord::Migration::Compatibility::V5_0::TableDefinition
+  def belongs_to(*args, **options); end
+  def primary_key(name, type = nil, **options); end
+  def references(*args, **options); end
+end
+class ActiveRecord::Migration::Compatibility::V4_2 < ActiveRecord::Migration::Compatibility::V5_0
+  def add_belongs_to(table_name, ref_name, **options); end
+  def add_reference(table_name, ref_name, **options); end
+  def add_timestamps(table_name, **options); end
+  def compatible_table_definition(t); end
+  def index_exists?(table_name, column_name, options = nil); end
+  def index_name_for_remove(table_name, options = nil); end
+  def remove_index(table_name, options = nil); end
+end
+module ActiveRecord::Migration::Compatibility::V4_2::TableDefinition
+  def belongs_to(*arg0, **options); end
+  def references(*arg0, **options); end
+  def timestamps(**options); end
 end
 class ActiveRecord::Tasks::DatabaseAlreadyExists < StandardError
 end
@@ -5222,6 +5691,31 @@ module ActiveRecord::Tasks::DatabaseTasks
   def truncate_tables(configuration); end
   def verbose?; end
   extend ActiveRecord::Tasks::DatabaseTasks
+end
+module ActiveRecord::InternalMetadata::GeneratedAttributeMethods
+end
+class ActiveRecord::InternalMetadata < ActiveRecord::Base
+  include ActiveRecord::InternalMetadata::GeneratedAssociationMethods
+  include ActiveRecord::InternalMetadata::GeneratedAttributeMethods
+end
+module ActiveRecord::InternalMetadata::GeneratedAssociationMethods
+end
+class ActiveRecord::InternalMetadata::ActiveRecord_Relation < ActiveRecord::Relation
+  extend ActiveRecord::Delegation::ClassSpecificRelation::ClassMethods
+  include ActiveRecord::Delegation::ClassSpecificRelation
+  include ActiveRecord::InternalMetadata::GeneratedRelationMethods
+end
+module ActiveRecord::InternalMetadata::GeneratedRelationMethods
+end
+class ActiveRecord::InternalMetadata::ActiveRecord_Associations_CollectionProxy < ActiveRecord::Associations::CollectionProxy
+  extend ActiveRecord::Delegation::ClassSpecificRelation::ClassMethods
+  include ActiveRecord::Delegation::ClassSpecificRelation
+  include ActiveRecord::InternalMetadata::GeneratedRelationMethods
+end
+class ActiveRecord::InternalMetadata::ActiveRecord_AssociationRelation < ActiveRecord::AssociationRelation
+  extend ActiveRecord::Delegation::ClassSpecificRelation::ClassMethods
+  include ActiveRecord::Delegation::ClassSpecificRelation
+  include ActiveRecord::InternalMetadata::GeneratedRelationMethods
 end
 class ActiveRecord::ConnectionAdapters::TransactionState
   def add_child(state); end
@@ -5301,6 +5795,132 @@ class ActiveRecord::RuntimeRegistry
   def sql_runtime; end
   def sql_runtime=(arg0); end
   extend ActiveSupport::PerThreadRegistry
+end
+class ActiveRecord::PredicateBuilder
+  def build(attribute, value); end
+  def build_bind_attribute(column_name, value); end
+  def build_from_hash(attributes); end
+  def convert_dot_notation_to_hash(attributes); end
+  def expand_from_hash(attributes); end
+  def handler_for(object); end
+  def initialize(table); end
+  def register_handler(klass, handler); end
+  def resolve_column_aliases(**, &&); end
+  def self.references(attributes); end
+  def table; end
+end
+class ActiveRecord::PredicateBuilder::ArrayHandler
+  def call(attribute, value); end
+  def initialize(predicate_builder); end
+  def predicate_builder; end
+end
+module ActiveRecord::PredicateBuilder::ArrayHandler::NullPredicate
+  def self.or(other); end
+end
+class ActiveRecord::PredicateBuilder::BaseHandler
+  def call(attribute, value); end
+  def initialize(predicate_builder); end
+  def predicate_builder; end
+end
+class ActiveRecord::PredicateBuilder::BasicObjectHandler
+  def call(attribute, value); end
+  def initialize(predicate_builder); end
+  def predicate_builder; end
+end
+class ActiveRecord::PredicateBuilder::RangeHandler
+  def call(attribute, value); end
+  def initialize(predicate_builder); end
+  def predicate_builder; end
+end
+class ActiveRecord::PredicateBuilder::RangeHandler::RangeWithBinds < Struct
+  def begin; end
+  def begin=(_); end
+  def end; end
+  def end=(_); end
+  def exclude_end?; end
+  def self.[](*arg0); end
+  def self.inspect; end
+  def self.members; end
+  def self.new(*arg0); end
+end
+class ActiveRecord::PredicateBuilder::RelationHandler
+  def call(attribute, value); end
+end
+class ActiveRecord::PredicateBuilder::AssociationQueryValue
+  def associated_table; end
+  def convert_to_id(value); end
+  def ids; end
+  def initialize(associated_table, value); end
+  def primary_key; end
+  def queries; end
+  def value; end
+end
+class ActiveRecord::PredicateBuilder::PolymorphicArrayValue
+  def associated_table; end
+  def convert_to_id(value); end
+  def initialize(associated_table, values); end
+  def klass(value); end
+  def primary_key(value); end
+  def queries; end
+  def type_to_ids_mapping; end
+  def values; end
+end
+class ActiveRecord::TableMetadata
+  def aggregated_with?(aggregation_name); end
+  def arel_attribute(column_name); end
+  def arel_table; end
+  def associated_predicate_builder(table_name); end
+  def associated_table(table_name); end
+  def associated_with?(association_name); end
+  def association; end
+  def association_foreign_key(**, &&); end
+  def association_foreign_type(**, &&); end
+  def association_join_foreign_key(**, &&); end
+  def association_join_primary_key(**, &&); end
+  def has_column?(column_name); end
+  def initialize(klass, arel_table, association = nil, types = nil); end
+  def klass; end
+  def polymorphic_association?; end
+  def predicate_builder; end
+  def reflect_on_aggregation(aggregation_name); end
+  def resolve_column_aliases(hash); end
+  def type(column_name); end
+  def types; end
+end
+class ActiveRecord::StatementCache
+  def bind_map; end
+  def execute(params, connection, &block); end
+  def initialize(query_builder, bind_map, klass); end
+  def klass; end
+  def query_builder; end
+  def self.create(connection, callable = nil, &block); end
+  def self.partial_query(values); end
+  def self.partial_query_collector; end
+  def self.query(sql); end
+  def self.unsupported_value?(value); end
+end
+class ActiveRecord::StatementCache::Substitute
+end
+class ActiveRecord::StatementCache::Query
+  def initialize(sql); end
+  def sql_for(binds, connection); end
+end
+class ActiveRecord::StatementCache::PartialQuery < ActiveRecord::StatementCache::Query
+  def initialize(values); end
+  def sql_for(binds, connection); end
+end
+class ActiveRecord::StatementCache::PartialQueryCollector
+  def <<(str); end
+  def add_bind(obj); end
+  def initialize; end
+  def value; end
+end
+class ActiveRecord::StatementCache::Params
+  def bind; end
+end
+class ActiveRecord::StatementCache::BindMap
+  def bind(values); end
+  def initialize(bound_attributes); end
 end
 class ActiveRecord::Result
   def [](idx); end
