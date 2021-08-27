@@ -4,7 +4,6 @@ require 'rails_helper'
 class AccountCreated < RailsEventStore::Event
 end
   
-
 class AccountNameChanged < RailsEventStore::Event
 end
 
@@ -33,17 +32,13 @@ class AccountAggregate
 end
 
 
-class AccountAggregate
-  include AggregateRoot
-end
-
 RSpec.describe Account, type: :model do
   let (:client) { RailsEventStore::Client.new }
 
   let (:repository) { AggregateRoot::Repository.new }
 
-  it 'can process name change events' do
-    num_accounts = 100
+  it 'can process bulk name change events' do
+    num_accounts = 10
 
     account_ids = (0...num_accounts).map{ |i| SecureRandom.uuid }
     account_ids.each{ |account_id|
