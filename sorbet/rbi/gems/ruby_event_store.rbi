@@ -509,7 +509,7 @@ class RubyEventStore::CorrelatedCommands
   def event_store; end
   def initialize(event_store, command_bus); end
 end
-class Anonymous_Struct_54 < Struct
+class Anonymous_Struct_40 < Struct
   def correlation_id; end
   def correlation_id=(_); end
   def message_id; end
@@ -519,7 +519,7 @@ class Anonymous_Struct_54 < Struct
   def self.members; end
   def self.new(*arg0); end
 end
-class RubyEventStore::CorrelatedCommands::MiniEvent < Anonymous_Struct_54
+class RubyEventStore::CorrelatedCommands::MiniEvent < Anonymous_Struct_40
 end
 class RubyEventStore::LinkByMetadata
   def call(event); end

@@ -5,9 +5,9 @@
 #
 # If you would like to make changes to this file, great! Please create the gem's shim here:
 #
-#   https://github.com/sorbet/sorbet-typed/new/master?filename=lib/nokogiri-1.12.3-x86_64/all/nokogiri-1.12.3-x86_64.rbi
+#   https://github.com/sorbet/sorbet-typed/new/master?filename=lib/nokogiri-1.12.4-x86_64/all/nokogiri-1.12.4-x86_64.rbi
 #
-# nokogiri-1.12.3-x86_64-darwin
+# nokogiri-1.12.4-x86_64-darwin
 
 class Nokogiri::XML::ElementContent
   def c1; end
@@ -487,6 +487,8 @@ class Nokogiri::XML::Document < Nokogiri::XML::Node
   def initialize(*args); end
   def inspect_attributes; end
   def name; end
+  def namespace_inheritance; end
+  def namespace_inheritance=(arg0); end
   def namespaces; end
   def remove_namespaces!; end
   def root; end
@@ -691,7 +693,7 @@ class Nokogiri::XML::SAX::Parser
   def parse_io(io, encoding = nil); end
   def parse_memory(data); end
 end
-class Anonymous_Struct_48 < Struct
+class Anonymous_Struct_34 < Struct
   def localname; end
   def localname=(_); end
   def prefix; end
@@ -705,7 +707,7 @@ class Anonymous_Struct_48 < Struct
   def value; end
   def value=(_); end
 end
-class Nokogiri::XML::SAX::Parser::Attribute < Anonymous_Struct_48
+class Nokogiri::XML::SAX::Parser::Attribute < Anonymous_Struct_34
 end
 module Nokogiri::XML::Searchable
   def %(*args); end
@@ -802,7 +804,7 @@ class Nokogiri::XML::Builder::NodeBuilder
   def initialize(node, doc_builder); end
   def method_missing(method, *args, &block); end
 end
-class Anonymous_Struct_49 < Struct
+class Anonymous_Struct_35 < Struct
   def name; end
   def name=(_); end
   def public_id; end
@@ -814,13 +816,13 @@ class Anonymous_Struct_49 < Struct
   def system_id; end
   def system_id=(_); end
 end
-class Nokogiri::XML::Notation < Anonymous_Struct_49
+class Nokogiri::XML::Notation < Anonymous_Struct_35
 end
 module Nokogiri::HTML4
   def self.fragment(string, encoding = nil); end
   def self.parse(input, url = nil, encoding = nil, options = nil, &block); end
 end
-class Anonymous_Struct_50 < Struct
+class Anonymous_Struct_36 < Struct
   def description; end
   def description=(_); end
   def name; end
@@ -832,7 +834,7 @@ class Anonymous_Struct_50 < Struct
   def value; end
   def value=(_); end
 end
-class Nokogiri::HTML4::EntityDescription < Anonymous_Struct_50
+class Nokogiri::HTML4::EntityDescription < Anonymous_Struct_36
 end
 class Nokogiri::HTML4::Document::EncodingFound < StandardError
   def found_encoding; end

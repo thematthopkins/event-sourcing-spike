@@ -1,74 +1,24 @@
-# typed: strict
+# typed: false
 require 'rails_helper'
-require 'benchmark'
-
-
-class AccountCreated < RailsEventStore::Event
-  sig {params(msg: {data:{name: String, id: String}}).returns(AccountCreated)}
-  def initialize(msg)
-    base(msg)
-  end
-end
-  
-class AccountNameChanged < RailsEventStore::Event
-end
-
-class AccountNameChangeCompleted < RailsEventStore::Event
-end
-
-class AccountAggregate
-  include AggregateRoot
-
-  attr_accessor :name
-  attr_accessor :prev_name
-  attr_accessor :id
-
-  def changeName(new_name)
-    apply(AccountNameChanged.new(data: {name: new_name, prev_name: @name}))
-  end
-
-  def changeName2(new_name)
-    apply(AccountNameChanged.new(data: {name: new_name, prev_name: @name}), AccountNameChangeCompleted.new())
-  end
-
-  on AccountNameChanged do |event|
-    @name = event.data[:name]
-    @prev_name = event.data[:prev_name]
-  end
-
-  on AccountCreated do |event|
-    @name = event.data[:name]
-    @id = event.data[:id]
-  end
-
-  on AccountNameChangeCompleted do |event|
-  end
-end
-
 
 RSpec.describe Account, type: :model do
+  puts(self.method(:it).source_location)
   it 'optimistic locking works with different event counts' do
     expect {
       repository = AggregateRoot::Repository.new
       account_id = '1'
       t = Thread.new do
         repository.with_aggregate(AccountAggregate.new, account_id) do |account|
-          puts 'changine name b'
           sleep 0.1
           account.changeName('b')
-          puts 'changed name b'
         end
       end
 
 
       repository.with_aggregate(AccountAggregate.new, account_id) do |account|
-        puts 'changine name a'
         sleep 1
         account.changeName2('a')
-        puts 'changed name a'
       end
-
-      puts 'waiting'
       t.join
     }.to raise_exception(RubyEventStore::WrongExpectedEventVersion)
   end

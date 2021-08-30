@@ -2,11 +2,24 @@
 #   srb rbi todo
 
 # typed: strong
-module ::Anonymous_Delegator_35; end
-module ::Anonymous_Delegator_55; end
-module ::Anonymous_Delegator_56; end
-module ::Anonymous_Delegator_61; end
-module ::Anonymous_Delegator_7; end
 module ActionDispatch::Response::ContentTypeHeader; end
-module ActiveRecord::Associations::Association; end
-module Rails::Engine::Configuration; end
+module ActiveRecord::Associations::CollectionProxy; end
+module ActiveRecord::Import::Connection; end
+module Mail::CheckDeliveryParams; end
+module Mail::Ruby19; end
+module PG::TextDecoder::TimestampLocal; end
+module PG::TypeMap::DefaultTypeMappable; end
+module Rack::QueryParser::InvalidParameterError; end
+module Rack::QueryParser::ParameterTypeError; end
+module Rack::QueryParser::Params; end
+module Rack::Request::Env; end
+module Rack::Response::Helpers; end
+module Rails::Application::Configuration; end
+module Sprockets::Rails::RouteWrapper; end
+module Sprockets::Rails::Utils; end
+module Zip::CompressionMethodError; end
+module Zip::DestinationFileExistsError; end
+module Zip::EntryExistsError; end
+module Zip::EntryNameError; end
+module Zip::Error; end
+module Zip::InternalError; end

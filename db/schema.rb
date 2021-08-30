@@ -1,3 +1,4 @@
+# typed: false
 # This file is auto-generated from the current state of the database. Instead
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
@@ -14,23 +15,6 @@ ActiveRecord::Schema.define(version: 2021_08_23_183533) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
-
-  create_table "commits", primary_key: "checkpointnumber", force: :cascade do |t|
-    t.string "bucketid", limit: 40, null: false
-    t.string "streamid", limit: 40, null: false
-    t.string "streamidoriginal", limit: 1000, null: false
-    t.integer "streamrevision", null: false
-    t.integer "items", null: false
-    t.uuid "commitid", null: false
-    t.integer "commitsequence", null: false
-    t.datetime "commitstamp", null: false
-    t.binary "headers"
-    t.binary "payload", null: false
-    t.index ["bucketid", "streamid", "commitid"], name: "ix_commits_commitid", unique: true
-    t.index ["bucketid", "streamid", "commitsequence"], name: "ix_commits_commitsequence", unique: true
-    t.index ["bucketid", "streamid", "streamrevision", "items"], name: "ix_commits_revisions", unique: true
-    t.index ["commitstamp"], name: "ix_commits_stamp"
-  end
 
   create_table "event_store_events", id: :serial, force: :cascade do |t|
     t.uuid "event_id", null: false
@@ -58,13 +42,6 @@ ActiveRecord::Schema.define(version: 2021_08_23_183533) do
   create_table "orders", force: :cascade do |t|
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-  end
-
-  create_table "snapshots", primary_key: ["bucketid", "streamid", "streamrevision"], force: :cascade do |t|
-    t.string "bucketid", limit: 40, null: false
-    t.string "streamid", limit: 40, null: false
-    t.integer "streamrevision", null: false
-    t.binary "payload", null: false
   end
 
 end

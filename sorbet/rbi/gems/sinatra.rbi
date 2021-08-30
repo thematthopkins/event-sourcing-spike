@@ -96,7 +96,7 @@ class Sinatra::Response < Rack::Response
   def each; end
   def finish; end
 end
-class Anonymous_Struct_57 < Struct
+class Anonymous_Struct_43 < Struct
   def app; end
   def app=(_); end
   def self.[](*arg0); end
@@ -104,7 +104,7 @@ class Anonymous_Struct_57 < Struct
   def self.members; end
   def self.new(*arg0); end
 end
-class Sinatra::ExtendedRack < Anonymous_Struct_57
+class Sinatra::ExtendedRack < Anonymous_Struct_43
   def after_response(&block); end
   def async?(status, headers, body); end
   def call(env); end
