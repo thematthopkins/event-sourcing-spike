@@ -182,6 +182,9 @@ GEM
       rspec-expectations (~> 3.10)
       rspec-mocks (~> 3.10)
       rspec-support (~> 3.10)
+    rspec-sorbet (1.8.0)
+      sorbet
+      sorbet-runtime
     rspec-support (3.10.2)
     ruby2_keywords (0.0.5)
     ruby_event_store (2.2.0)
@@ -266,6 +269,7 @@ DEPENDENCIES
   rails (~> 6.0.4, >= 6.0.4.1)
   rails_event_store (~> 2.2.0)
   rspec-rails (~> 5.0.0)
+  rspec-sorbet
   sass-rails (>= 6)
   selenium-webdriver
   sorbet

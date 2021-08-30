@@ -22,8 +22,6 @@ class AccountAggregate
   attr_accessor :name
   attr_accessor :prev_name
   attr_accessor :id
-  def initialize
-  end
 
   def changeName(new_name)
     apply(AccountNameChanged.new(data: {name: new_name, prev_name: @name}))
@@ -49,12 +47,9 @@ end
 
 
 RSpec.describe Account, type: :model do
-  let (:client) { RailsEventStore::Client.new }
-
-  let (:repository) { AggregateRoot::Repository.new }
-
   it 'optimistic locking works with different event counts' do
     expect {
+      repository = AggregateRoot::Repository.new
       account_id = '1'
       t = Thread.new do
         repository.with_aggregate(AccountAggregate.new, account_id) do |account|
@@ -80,6 +75,8 @@ RSpec.describe Account, type: :model do
 
   it 'can process bulk name change events' do
     num_accounts = 1
+    client = RailsEventStore::Client.new
+    repository = AggregateRoot::Repository.new
 
     account_ids = (0...num_accounts).map{ |i| SecureRandom.uuid }
     account_ids.each{ |account_id|

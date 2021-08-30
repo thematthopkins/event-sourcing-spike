@@ -146,25 +146,25 @@
 # wrong constant name _routes
 # wrong constant name action_methods
 # wrong constant name <static-init>
-# uninitialized constant Account(Table doesn't exist)::ACTIONS
+# uninitialized constant Account (call 'Account.connection' to establish a connection)::ACTIONS
 # Did you mean?  Account::ACTIONS
-# uninitialized constant Account(Table doesn't exist)::CALLBACKS
+# uninitialized constant Account (call 'Account.connection' to establish a connection)::CALLBACKS
 # Did you mean?  Account::Callbacks
 #                Account::Callback
 #                Account::CALLBACKS
-# uninitialized constant Account(Table doesn't exist)::CALLBACK_FILTER_TYPES
+# uninitialized constant Account (call 'Account.connection' to establish a connection)::CALLBACK_FILTER_TYPES
 # Did you mean?  Account::CALLBACK_FILTER_TYPES
-# uninitialized constant Account(Table doesn't exist)::CALL_COMPILABLE_REGEXP
+# uninitialized constant Account (call 'Account.connection' to establish a connection)::CALL_COMPILABLE_REGEXP
 # Did you mean?  Account::CALL_COMPILABLE_REGEXP
 # wrong constant name <Class:GeneratedAssociationMethods>
 # wrong constant name <Class:GeneratedAttributeMethods>
-# uninitialized constant Account(Table doesn't exist)::MAX_PASSWORD_LENGTH_ALLOWED
+# uninitialized constant Account (call 'Account.connection' to establish a connection)::MAX_PASSWORD_LENGTH_ALLOWED
 # Did you mean?  Account::MAX_PASSWORD_LENGTH_ALLOWED
-# uninitialized constant Account(Table doesn't exist)::NAME_COMPILABLE_REGEXP
+# uninitialized constant Account (call 'Account.connection' to establish a connection)::NAME_COMPILABLE_REGEXP
 # Did you mean?  Account::NAME_COMPILABLE_REGEXP
-# uninitialized constant Account(Table doesn't exist)::RESTRICTED_CLASS_METHODS
+# uninitialized constant Account (call 'Account.connection' to establish a connection)::RESTRICTED_CLASS_METHODS
 # Did you mean?  Account::RESTRICTED_CLASS_METHODS
-# uninitialized constant Account(Table doesn't exist)::UNASSIGNABLE_KEYS
+# uninitialized constant Account (call 'Account.connection' to establish a connection)::UNASSIGNABLE_KEYS
 # Did you mean?  Account::UNASSIGNABLE_KEYS
 # wrong constant name <static-init>
 # wrong constant name <static-init>
@@ -1343,13 +1343,13 @@
 # wrong constant name <Class:NullSessionHash>
 # wrong constant name handle_unverified_request
 # wrong constant name initialize
-# uninitialized constant #<Class:0x00007f9d87057950>::DOMAIN_REGEXP
+# uninitialized constant #<Class:0x00007fc40b7b1098>::DOMAIN_REGEXP
 # Did you mean?  ActionController::RequestForgeryProtection::ProtectionMethods::NullSession::NullCookieJar::DOMAIN_REGEXP
-# uninitialized constant #<Class:0x00007f9d87057950>::Elem
+# uninitialized constant #<Class:0x00007fc40b7b1098>::Elem
 # wrong constant name write
 # wrong constant name <static-init>
-# uninitialized constant #<Class:0x00007f9d8705c568>::Elem
-# uninitialized constant #<Class:0x00007f9d8705c568>::Unspecified
+# uninitialized constant #<Class:0x00007fc40b7b1b88>::Elem
+# uninitialized constant #<Class:0x00007fc40b7b1b88>::Unspecified
 # Did you mean?  ActionController::RequestForgeryProtection::ProtectionMethods::NullSession::NullSessionHash::Unspecified
 # wrong constant name initialize
 # wrong constant name <static-init>
@@ -3334,29 +3334,29 @@
 # wrong constant name <static-init>
 # uninitialized constant ActionMailbox::Engine::ABSTRACT_RAILTIES
 # wrong constant name <static-init>
-# uninitialized constant ActionMailbox::InboundEmail(Table doesn't exist)::ACTIONS
+# uninitialized constant #<Class:0x00007fc3bb6934b8>::ACTIONS
 # Did you mean?  ActionMailbox::InboundEmail::ACTIONS
-# uninitialized constant ActionMailbox::InboundEmail(Table doesn't exist)::CALLBACKS
+# uninitialized constant #<Class:0x00007fc3bb6934b8>::CALLBACKS
 # Did you mean?  ActionMailbox::InboundEmail::Callbacks
 #                ActionMailbox::Callbacks
 #                ActionMailbox::InboundEmail::Callback
 #                ActionMailbox::InboundEmail::CALLBACKS
-# uninitialized constant ActionMailbox::InboundEmail(Table doesn't exist)::CALLBACK_FILTER_TYPES
+# uninitialized constant #<Class:0x00007fc3bb6934b8>::CALLBACK_FILTER_TYPES
 # Did you mean?  ActionMailbox::InboundEmail::CALLBACK_FILTER_TYPES
-# uninitialized constant ActionMailbox::InboundEmail(Table doesn't exist)::CALL_COMPILABLE_REGEXP
+# uninitialized constant #<Class:0x00007fc3bb6934b8>::CALL_COMPILABLE_REGEXP
 # Did you mean?  ActionMailbox::InboundEmail::CALL_COMPILABLE_REGEXP
 # wrong constant name <Class:GeneratedAssociationMethods>
 # wrong constant name <Class:GeneratedAttributeMethods>
 # wrong constant name <Class:Incineratable>
-# uninitialized constant ActionMailbox::InboundEmail(Table doesn't exist)::MAX_PASSWORD_LENGTH_ALLOWED
+# uninitialized constant #<Class:0x00007fc3bb6934b8>::MAX_PASSWORD_LENGTH_ALLOWED
 # Did you mean?  ActionMailbox::InboundEmail::MAX_PASSWORD_LENGTH_ALLOWED
 # wrong constant name <Class:MessageId>
-# uninitialized constant ActionMailbox::InboundEmail(Table doesn't exist)::NAME_COMPILABLE_REGEXP
+# uninitialized constant #<Class:0x00007fc3bb6934b8>::NAME_COMPILABLE_REGEXP
 # Did you mean?  ActionMailbox::InboundEmail::NAME_COMPILABLE_REGEXP
-# uninitialized constant ActionMailbox::InboundEmail(Table doesn't exist)::RESTRICTED_CLASS_METHODS
+# uninitialized constant #<Class:0x00007fc3bb6934b8>::RESTRICTED_CLASS_METHODS
 # Did you mean?  ActionMailbox::InboundEmail::RESTRICTED_CLASS_METHODS
 # wrong constant name <Class:Routable>
-# uninitialized constant ActionMailbox::InboundEmail(Table doesn't exist)::UNASSIGNABLE_KEYS
+# uninitialized constant #<Class:0x00007fc3bb6934b8>::UNASSIGNABLE_KEYS
 # Did you mean?  ActionMailbox::InboundEmail::UNASSIGNABLE_KEYS
 # wrong constant name autosave_associated_records_for_raw_email_attachment
 # wrong constant name autosave_associated_records_for_raw_email_blob
@@ -4089,26 +4089,26 @@
 # wrong constant name <static-init>
 # wrong constant name node_to_plain_text
 # wrong constant name <static-init>
-# uninitialized constant ActionText::RichText(Table doesn't exist)::ACTIONS
+# uninitialized constant #<Class:0x00007fc408c51678>::ACTIONS
 # Did you mean?  ActionText::RichText::ACTIONS
-# uninitialized constant ActionText::RichText(Table doesn't exist)::CALLBACKS
+# uninitialized constant #<Class:0x00007fc408c51678>::CALLBACKS
 # Did you mean?  ActionText::RichText::Callbacks
 #                ActionText::RichText::Callback
 #                ActionText::RichText::CALLBACKS
-# uninitialized constant ActionText::RichText(Table doesn't exist)::CALLBACK_FILTER_TYPES
+# uninitialized constant #<Class:0x00007fc408c51678>::CALLBACK_FILTER_TYPES
 # Did you mean?  ActionText::RichText::CALLBACK_FILTER_TYPES
-# uninitialized constant ActionText::RichText(Table doesn't exist)::CALL_COMPILABLE_REGEXP
+# uninitialized constant #<Class:0x00007fc408c51678>::CALL_COMPILABLE_REGEXP
 # Did you mean?  ActionText::RichText::CALL_COMPILABLE_REGEXP
 # wrong constant name <Class:EmbedsAttachmentsAssociationExtension>
 # wrong constant name <Class:GeneratedAssociationMethods>
 # wrong constant name <Class:GeneratedAttributeMethods>
-# uninitialized constant ActionText::RichText(Table doesn't exist)::MAX_PASSWORD_LENGTH_ALLOWED
+# uninitialized constant #<Class:0x00007fc408c51678>::MAX_PASSWORD_LENGTH_ALLOWED
 # Did you mean?  ActionText::RichText::MAX_PASSWORD_LENGTH_ALLOWED
-# uninitialized constant ActionText::RichText(Table doesn't exist)::NAME_COMPILABLE_REGEXP
+# uninitialized constant #<Class:0x00007fc408c51678>::NAME_COMPILABLE_REGEXP
 # Did you mean?  ActionText::RichText::NAME_COMPILABLE_REGEXP
-# uninitialized constant ActionText::RichText(Table doesn't exist)::RESTRICTED_CLASS_METHODS
+# uninitialized constant #<Class:0x00007fc408c51678>::RESTRICTED_CLASS_METHODS
 # Did you mean?  ActionText::RichText::RESTRICTED_CLASS_METHODS
-# uninitialized constant ActionText::RichText(Table doesn't exist)::UNASSIGNABLE_KEYS
+# uninitialized constant #<Class:0x00007fc408c51678>::UNASSIGNABLE_KEYS
 # Did you mean?  ActionText::RichText::UNASSIGNABLE_KEYS
 # wrong constant name after_add_for_embeds_attachments
 # wrong constant name after_add_for_embeds_attachments=
@@ -6968,9 +6968,9 @@
 # wrong constant name supports_pgcrypto_uuid?
 # wrong constant name supports_ranges?
 # wrong constant name use_insert_returning?
-# uninitialized constant #<Class:0x00007f9da6b407d0>::DEFAULT_STATEMENT_LIMIT
+# uninitialized constant #<Class:0x00007fc3bb5a4db8>::DEFAULT_STATEMENT_LIMIT
 # Did you mean?  ActiveRecord::ConnectionAdapters::PostgreSQLAdapter::StatementPool::DEFAULT_STATEMENT_LIMIT
-# uninitialized constant #<Class:0x00007f9da6b407d0>::Elem
+# uninitialized constant #<Class:0x00007fc3bb5a4db8>::Elem
 # wrong constant name []=
 # wrong constant name initialize
 # wrong constant name next_key
@@ -7365,7 +7365,6 @@
 # wrong constant name queries=
 # wrong constant name reset
 # wrong constant name <static-init>
-# wrong constant name collect?
 # wrong constant name finish
 # wrong constant name ignore_payload?
 # wrong constant name start
@@ -7396,91 +7395,6 @@
 # wrong constant name third_to_last
 # wrong constant name third_to_last!
 # wrong constant name <static-init>
-# uninitialized constant ActiveRecord::Fixture::Elem
-# wrong constant name <Class:FixtureError>
-# wrong constant name <Class:FormatError>
-# wrong constant name []
-# wrong constant name class_name
-# wrong constant name each
-# wrong constant name find
-# wrong constant name fixture
-# wrong constant name initialize
-# wrong constant name model_class
-# wrong constant name to_hash
-# wrong constant name <static-init>
-# wrong constant name <static-init>
-# wrong constant name <static-init>
-# wrong constant name <Class:ClassCache>
-# wrong constant name <Class:File>
-# wrong constant name <Class:ModelMetadata>
-# wrong constant name <Class:RenderContext>
-# wrong constant name <Class:TableRow>
-# wrong constant name <Class:TableRows>
-# wrong constant name []
-# wrong constant name []=
-# wrong constant name all_loaded_fixtures
-# wrong constant name all_loaded_fixtures=
-# wrong constant name config
-# wrong constant name each
-# wrong constant name fixtures
-# wrong constant name initialize
-# wrong constant name model_class
-# wrong constant name name
-# wrong constant name size
-# wrong constant name table_name
-# wrong constant name table_rows
-# wrong constant name []
-# wrong constant name initialize
-# wrong constant name <static-init>
-# uninitialized constant ActiveRecord::FixtureSet::File::Elem
-# wrong constant name each
-# wrong constant name initialize
-# wrong constant name model_class
-# wrong constant name <static-init>
-# wrong constant name open
-# wrong constant name has_primary_key_column?
-# wrong constant name inheritance_column_name
-# wrong constant name initialize
-# wrong constant name primary_key_name
-# wrong constant name primary_key_type
-# wrong constant name timestamp_column_names
-# wrong constant name <static-init>
-# wrong constant name <static-init>
-# wrong constant name create_subclass
-# wrong constant name <Class:HasManyThroughProxy>
-# wrong constant name <Class:ReflectionProxy>
-# wrong constant name initialize
-# wrong constant name to_hash
-# wrong constant name lhs_key
-# wrong constant name rhs_key
-# wrong constant name <static-init>
-# wrong constant name initialize
-# wrong constant name join_table
-# wrong constant name name
-# wrong constant name primary_key_type
-# wrong constant name <static-init>
-# wrong constant name <static-init>
-# wrong constant name initialize
-# wrong constant name model_class
-# wrong constant name model_metadata
-# wrong constant name tables
-# wrong constant name to_hash
-# wrong constant name <static-init>
-# wrong constant name <static-init>
-# wrong constant name all_loaded_fixtures
-# wrong constant name all_loaded_fixtures=
-# wrong constant name cache_fixtures
-# wrong constant name cache_for_connection
-# wrong constant name cached_fixtures
-# wrong constant name context_class
-# wrong constant name create_fixtures
-# wrong constant name default_fixture_model_name
-# wrong constant name default_fixture_table_name
-# wrong constant name fixture_is_cached?
-# wrong constant name identify
-# wrong constant name instantiate_all_loaded_fixtures
-# wrong constant name instantiate_fixtures
-# wrong constant name reset_cache
 # wrong constant name initialize
 # wrong constant name initialize
 # wrong constant name initialize
@@ -7521,26 +7435,26 @@
 # wrong constant name cache_key_with_version
 # wrong constant name cache_version
 # wrong constant name to_param
-# uninitialized constant #<Class:0x00007f9dd66a7900>::ACTIONS
+# uninitialized constant #<Class:0x00007fc3e9986a98>::ACTIONS
 # Did you mean?  ActiveRecord::InternalMetadata::ACTIONS
-# uninitialized constant #<Class:0x00007f9dd66a7900>::CALLBACKS
+# uninitialized constant #<Class:0x00007fc3e9986a98>::CALLBACKS
 # Did you mean?  ActiveRecord::Callbacks
 #                ActiveRecord::InternalMetadata::Callbacks
 #                ActiveRecord::InternalMetadata::Callback
 #                ActiveRecord::InternalMetadata::CALLBACKS
-# uninitialized constant #<Class:0x00007f9dd66a7900>::CALLBACK_FILTER_TYPES
+# uninitialized constant #<Class:0x00007fc3e9986a98>::CALLBACK_FILTER_TYPES
 # Did you mean?  ActiveRecord::InternalMetadata::CALLBACK_FILTER_TYPES
-# uninitialized constant #<Class:0x00007f9dd66a7900>::CALL_COMPILABLE_REGEXP
+# uninitialized constant #<Class:0x00007fc3e9986a98>::CALL_COMPILABLE_REGEXP
 # Did you mean?  ActiveRecord::InternalMetadata::CALL_COMPILABLE_REGEXP
 # wrong constant name <Class:GeneratedAssociationMethods>
 # wrong constant name <Class:GeneratedAttributeMethods>
-# uninitialized constant #<Class:0x00007f9dd66a7900>::MAX_PASSWORD_LENGTH_ALLOWED
+# uninitialized constant #<Class:0x00007fc3e9986a98>::MAX_PASSWORD_LENGTH_ALLOWED
 # Did you mean?  ActiveRecord::InternalMetadata::MAX_PASSWORD_LENGTH_ALLOWED
-# uninitialized constant #<Class:0x00007f9dd66a7900>::NAME_COMPILABLE_REGEXP
+# uninitialized constant #<Class:0x00007fc3e9986a98>::NAME_COMPILABLE_REGEXP
 # Did you mean?  ActiveRecord::InternalMetadata::NAME_COMPILABLE_REGEXP
-# uninitialized constant #<Class:0x00007f9dd66a7900>::RESTRICTED_CLASS_METHODS
+# uninitialized constant #<Class:0x00007fc3e9986a98>::RESTRICTED_CLASS_METHODS
 # Did you mean?  ActiveRecord::InternalMetadata::RESTRICTED_CLASS_METHODS
-# uninitialized constant #<Class:0x00007f9dd66a7900>::UNASSIGNABLE_KEYS
+# uninitialized constant #<Class:0x00007fc3e9986a98>::UNASSIGNABLE_KEYS
 # Did you mean?  ActiveRecord::InternalMetadata::UNASSIGNABLE_KEYS
 # wrong constant name <static-init>
 # wrong constant name <static-init>
@@ -8357,26 +8271,26 @@
 # wrong constant name fk_ignore_pattern=
 # wrong constant name ignore_tables
 # wrong constant name ignore_tables=
-# uninitialized constant ActiveRecord::SchemaMigration(version: string)::ACTIONS
+# uninitialized constant #<Class:0x00007fc3bdab81e0>::ACTIONS
 # Did you mean?  ActiveRecord::SchemaMigration::ACTIONS
-# uninitialized constant ActiveRecord::SchemaMigration(version: string)::CALLBACKS
+# uninitialized constant #<Class:0x00007fc3bdab81e0>::CALLBACKS
 # Did you mean?  ActiveRecord::Callbacks
 #                ActiveRecord::SchemaMigration::Callbacks
 #                ActiveRecord::SchemaMigration::Callback
 #                ActiveRecord::SchemaMigration::CALLBACKS
-# uninitialized constant ActiveRecord::SchemaMigration(version: string)::CALLBACK_FILTER_TYPES
+# uninitialized constant #<Class:0x00007fc3bdab81e0>::CALLBACK_FILTER_TYPES
 # Did you mean?  ActiveRecord::SchemaMigration::CALLBACK_FILTER_TYPES
-# uninitialized constant ActiveRecord::SchemaMigration(version: string)::CALL_COMPILABLE_REGEXP
+# uninitialized constant #<Class:0x00007fc3bdab81e0>::CALL_COMPILABLE_REGEXP
 # Did you mean?  ActiveRecord::SchemaMigration::CALL_COMPILABLE_REGEXP
 # wrong constant name <Class:GeneratedAssociationMethods>
 # wrong constant name <Class:GeneratedAttributeMethods>
-# uninitialized constant ActiveRecord::SchemaMigration(version: string)::MAX_PASSWORD_LENGTH_ALLOWED
+# uninitialized constant #<Class:0x00007fc3bdab81e0>::MAX_PASSWORD_LENGTH_ALLOWED
 # Did you mean?  ActiveRecord::SchemaMigration::MAX_PASSWORD_LENGTH_ALLOWED
-# uninitialized constant ActiveRecord::SchemaMigration(version: string)::NAME_COMPILABLE_REGEXP
+# uninitialized constant #<Class:0x00007fc3bdab81e0>::NAME_COMPILABLE_REGEXP
 # Did you mean?  ActiveRecord::SchemaMigration::NAME_COMPILABLE_REGEXP
-# uninitialized constant ActiveRecord::SchemaMigration(version: string)::RESTRICTED_CLASS_METHODS
+# uninitialized constant #<Class:0x00007fc3bdab81e0>::RESTRICTED_CLASS_METHODS
 # Did you mean?  ActiveRecord::SchemaMigration::RESTRICTED_CLASS_METHODS
-# uninitialized constant ActiveRecord::SchemaMigration(version: string)::UNASSIGNABLE_KEYS
+# uninitialized constant #<Class:0x00007fc3bdab81e0>::UNASSIGNABLE_KEYS
 # Did you mean?  ActiveRecord::SchemaMigration::UNASSIGNABLE_KEYS
 # wrong constant name version
 # wrong constant name <static-init>
@@ -8550,12 +8464,19 @@
 # wrong constant name <static-init>
 # wrong constant name <static-init>
 # wrong constant name create_and_load_schema
+# wrong constant name <Class:ClassMethods>
 # wrong constant name after_teardown
 # wrong constant name before_setup
 # wrong constant name enlist_fixture_connections
 # wrong constant name run_in_transaction?
 # wrong constant name setup_fixtures
 # wrong constant name teardown_fixtures
+# wrong constant name fixtures
+# wrong constant name set_fixture_class
+# wrong constant name setup_fixture_accessors
+# wrong constant name uses_transaction
+# wrong constant name uses_transaction?
+# wrong constant name <static-init>
 # wrong constant name <static-init>
 # wrong constant name initialize
 # wrong constant name initialize
@@ -8777,25 +8698,25 @@
 # wrong constant name changed_for_autosave?
 # wrong constant name reload
 # wrong constant name method_missing
-# uninitialized constant ActiveStorage::Attachment(Table doesn't exist)::ACTIONS
+# uninitialized constant #<Class:0x00007fc3bb542ed8>::ACTIONS
 # Did you mean?  ActiveStorage::Attachment::ACTIONS
-# uninitialized constant ActiveStorage::Attachment(Table doesn't exist)::CALLBACKS
+# uninitialized constant #<Class:0x00007fc3bb542ed8>::CALLBACKS
 # Did you mean?  ActiveStorage::Attachment::Callbacks
 #                ActiveStorage::Attachment::Callback
 #                ActiveStorage::Attachment::CALLBACKS
-# uninitialized constant ActiveStorage::Attachment(Table doesn't exist)::CALLBACK_FILTER_TYPES
+# uninitialized constant #<Class:0x00007fc3bb542ed8>::CALLBACK_FILTER_TYPES
 # Did you mean?  ActiveStorage::Attachment::CALLBACK_FILTER_TYPES
-# uninitialized constant ActiveStorage::Attachment(Table doesn't exist)::CALL_COMPILABLE_REGEXP
+# uninitialized constant #<Class:0x00007fc3bb542ed8>::CALL_COMPILABLE_REGEXP
 # Did you mean?  ActiveStorage::Attachment::CALL_COMPILABLE_REGEXP
 # wrong constant name <Class:GeneratedAssociationMethods>
 # wrong constant name <Class:GeneratedAttributeMethods>
-# uninitialized constant ActiveStorage::Attachment(Table doesn't exist)::MAX_PASSWORD_LENGTH_ALLOWED
+# uninitialized constant #<Class:0x00007fc3bb542ed8>::MAX_PASSWORD_LENGTH_ALLOWED
 # Did you mean?  ActiveStorage::Attachment::MAX_PASSWORD_LENGTH_ALLOWED
-# uninitialized constant ActiveStorage::Attachment(Table doesn't exist)::NAME_COMPILABLE_REGEXP
+# uninitialized constant #<Class:0x00007fc3bb542ed8>::NAME_COMPILABLE_REGEXP
 # Did you mean?  ActiveStorage::Attachment::NAME_COMPILABLE_REGEXP
-# uninitialized constant ActiveStorage::Attachment(Table doesn't exist)::RESTRICTED_CLASS_METHODS
+# uninitialized constant #<Class:0x00007fc3bb542ed8>::RESTRICTED_CLASS_METHODS
 # Did you mean?  ActiveStorage::Attachment::RESTRICTED_CLASS_METHODS
-# uninitialized constant ActiveStorage::Attachment(Table doesn't exist)::UNASSIGNABLE_KEYS
+# uninitialized constant #<Class:0x00007fc3bb542ed8>::UNASSIGNABLE_KEYS
 # Did you mean?  ActiveStorage::Attachment::UNASSIGNABLE_KEYS
 # wrong constant name autosave_associated_records_for_blob
 # wrong constant name autosave_associated_records_for_record
@@ -8830,29 +8751,29 @@
 # wrong constant name <static-init>
 # uninitialized constant ActiveStorage::BaseJob::CALLBACK_FILTER_TYPES
 # wrong constant name <static-init>
-# uninitialized constant ActiveStorage::Blob(Table doesn't exist)::ACTIONS
+# uninitialized constant #<Class:0x00007fc3bb59d680>::ACTIONS
 # Did you mean?  ActiveStorage::Blob::ACTIONS
 # wrong constant name <Class:Analyzable>
-# uninitialized constant ActiveStorage::Blob(Table doesn't exist)::CALLBACKS
+# uninitialized constant #<Class:0x00007fc3bb59d680>::CALLBACKS
 # Did you mean?  ActiveStorage::Blob::Callbacks
 #                ActiveStorage::Blob::Callback
 #                ActiveStorage::Blob::CALLBACKS
-# uninitialized constant ActiveStorage::Blob(Table doesn't exist)::CALLBACK_FILTER_TYPES
+# uninitialized constant #<Class:0x00007fc3bb59d680>::CALLBACK_FILTER_TYPES
 # Did you mean?  ActiveStorage::Blob::CALLBACK_FILTER_TYPES
-# uninitialized constant ActiveStorage::Blob(Table doesn't exist)::CALL_COMPILABLE_REGEXP
+# uninitialized constant #<Class:0x00007fc3bb59d680>::CALL_COMPILABLE_REGEXP
 # Did you mean?  ActiveStorage::Blob::CALL_COMPILABLE_REGEXP
 # wrong constant name <Class:GeneratedAssociationMethods>
 # wrong constant name <Class:GeneratedAttributeMethods>
 # wrong constant name <Class:Identifiable>
-# uninitialized constant ActiveStorage::Blob(Table doesn't exist)::LOCATOR_NAME
+# uninitialized constant #<Class:0x00007fc3bb59d680>::LOCATOR_NAME
 # Did you mean?  ActiveStorage::Blob::LOCATOR_NAME
-# uninitialized constant ActiveStorage::Blob(Table doesn't exist)::MAX_PASSWORD_LENGTH_ALLOWED
+# uninitialized constant #<Class:0x00007fc3bb59d680>::MAX_PASSWORD_LENGTH_ALLOWED
 # Did you mean?  ActiveStorage::Blob::MAX_PASSWORD_LENGTH_ALLOWED
-# uninitialized constant ActiveStorage::Blob(Table doesn't exist)::NAME_COMPILABLE_REGEXP
+# uninitialized constant #<Class:0x00007fc3bb59d680>::NAME_COMPILABLE_REGEXP
 # Did you mean?  ActiveStorage::Blob::NAME_COMPILABLE_REGEXP
-# uninitialized constant ActiveStorage::Blob(Table doesn't exist)::RESTRICTED_CLASS_METHODS
+# uninitialized constant #<Class:0x00007fc3bb59d680>::RESTRICTED_CLASS_METHODS
 # Did you mean?  ActiveStorage::Blob::RESTRICTED_CLASS_METHODS
-# uninitialized constant ActiveStorage::Blob(Table doesn't exist)::UNASSIGNABLE_KEYS
+# uninitialized constant #<Class:0x00007fc3bb59d680>::UNASSIGNABLE_KEYS
 # Did you mean?  ActiveStorage::Blob::UNASSIGNABLE_KEYS
 # wrong constant name after_add_for_attachments
 # wrong constant name after_add_for_attachments=
@@ -10314,32 +10235,9 @@
 # wrong constant name assert_not_respond_to
 # wrong constant name assert_not_same
 # wrong constant name assert_raise
-# wrong constant name config
-# wrong constant name config=
-# wrong constant name config?
 # wrong constant name file_fixture_path
 # wrong constant name file_fixture_path?
-# wrong constant name fixture_class_names
-# wrong constant name fixture_class_names=
-# wrong constant name fixture_class_names?
-# wrong constant name fixture_path
-# wrong constant name fixture_path?
-# wrong constant name fixture_table_names
-# wrong constant name fixture_table_names=
-# wrong constant name fixture_table_names?
-# wrong constant name lock_threads
-# wrong constant name lock_threads=
-# wrong constant name lock_threads?
 # wrong constant name method_name
-# wrong constant name pre_loaded_fixtures
-# wrong constant name pre_loaded_fixtures=
-# wrong constant name pre_loaded_fixtures?
-# wrong constant name use_instantiated_fixtures
-# wrong constant name use_instantiated_fixtures=
-# wrong constant name use_instantiated_fixtures?
-# wrong constant name use_transactional_tests
-# wrong constant name use_transactional_tests=
-# wrong constant name use_transactional_tests?
 # wrong constant name __callbacks
 # wrong constant name __callbacks=
 # wrong constant name __callbacks?
@@ -10347,37 +10245,13 @@
 # wrong constant name _setup_callbacks=
 # wrong constant name _teardown_callbacks
 # wrong constant name _teardown_callbacks=
-# wrong constant name config
-# wrong constant name config=
-# wrong constant name config?
 # wrong constant name file_fixture_path
 # wrong constant name file_fixture_path=
 # wrong constant name file_fixture_path?
-# wrong constant name fixture_class_names
-# wrong constant name fixture_class_names=
-# wrong constant name fixture_class_names?
-# wrong constant name fixture_path
-# wrong constant name fixture_path=
-# wrong constant name fixture_path?
-# wrong constant name fixture_table_names
-# wrong constant name fixture_table_names=
-# wrong constant name fixture_table_names?
-# wrong constant name lock_threads
-# wrong constant name lock_threads=
-# wrong constant name lock_threads?
 # wrong constant name parallelize
 # wrong constant name parallelize_setup
 # wrong constant name parallelize_teardown
-# wrong constant name pre_loaded_fixtures
-# wrong constant name pre_loaded_fixtures=
-# wrong constant name pre_loaded_fixtures?
 # wrong constant name test_order=
-# wrong constant name use_instantiated_fixtures
-# wrong constant name use_instantiated_fixtures=
-# wrong constant name use_instantiated_fixtures?
-# wrong constant name use_transactional_tests
-# wrong constant name use_transactional_tests=
-# wrong constant name use_transactional_tests?
 # wrong constant name <Class:Assertions>
 # wrong constant name <Class:ConstantLookup>
 # wrong constant name <Class:Declarative>
@@ -18053,25 +17927,25 @@
 # wrong constant name additional=
 # uninitialized constant Opus
 # uninitialized constant Opus
-# uninitialized constant Order(id: integer, created_at: datetime, updated_at: datetime)::ACTIONS
+# uninitialized constant Order (call 'Order.connection' to establish a connection)::ACTIONS
 # Did you mean?  Order::ACTIONS
-# uninitialized constant Order(id: integer, created_at: datetime, updated_at: datetime)::CALLBACKS
+# uninitialized constant Order (call 'Order.connection' to establish a connection)::CALLBACKS
 # Did you mean?  Order::Callbacks
 #                Order::Callback
 #                Order::CALLBACKS
-# uninitialized constant Order(id: integer, created_at: datetime, updated_at: datetime)::CALLBACK_FILTER_TYPES
+# uninitialized constant Order (call 'Order.connection' to establish a connection)::CALLBACK_FILTER_TYPES
 # Did you mean?  Order::CALLBACK_FILTER_TYPES
-# uninitialized constant Order(id: integer, created_at: datetime, updated_at: datetime)::CALL_COMPILABLE_REGEXP
+# uninitialized constant Order (call 'Order.connection' to establish a connection)::CALL_COMPILABLE_REGEXP
 # Did you mean?  Order::CALL_COMPILABLE_REGEXP
 # wrong constant name <Class:GeneratedAssociationMethods>
 # wrong constant name <Class:GeneratedAttributeMethods>
-# uninitialized constant Order(id: integer, created_at: datetime, updated_at: datetime)::MAX_PASSWORD_LENGTH_ALLOWED
+# uninitialized constant Order (call 'Order.connection' to establish a connection)::MAX_PASSWORD_LENGTH_ALLOWED
 # Did you mean?  Order::MAX_PASSWORD_LENGTH_ALLOWED
-# uninitialized constant Order(id: integer, created_at: datetime, updated_at: datetime)::NAME_COMPILABLE_REGEXP
+# uninitialized constant Order (call 'Order.connection' to establish a connection)::NAME_COMPILABLE_REGEXP
 # Did you mean?  Order::NAME_COMPILABLE_REGEXP
-# uninitialized constant Order(id: integer, created_at: datetime, updated_at: datetime)::RESTRICTED_CLASS_METHODS
+# uninitialized constant Order (call 'Order.connection' to establish a connection)::RESTRICTED_CLASS_METHODS
 # Did you mean?  Order::RESTRICTED_CLASS_METHODS
-# uninitialized constant Order(id: integer, created_at: datetime, updated_at: datetime)::UNASSIGNABLE_KEYS
+# uninitialized constant Order (call 'Order.connection' to establish a connection)::UNASSIGNABLE_KEYS
 # Did you mean?  Order::UNASSIGNABLE_KEYS
 # wrong constant name <static-init>
 # wrong constant name <static-init>
@@ -20793,12 +20667,12 @@
 # Did you mean?  Puma::Binder::HTTP_X_FORWARDED_SSL
 #                Puma::Binder::HTTP_X_FORWARDED_PROTO
 # uninitialized constant Puma::Binder::HTTP_X_FORWARDED_PROTO
-# Did you mean?  Puma::Binder::HTTP_X_FORWARDED_FOR
-#                Puma::Binder::HTTP_X_FORWARDED_SSL
+# Did you mean?  Puma::Binder::HTTP_X_FORWARDED_SSL
+#                Puma::Binder::HTTP_X_FORWARDED_FOR
 #                Puma::Binder::HTTP_X_FORWARDED_SCHEME
 # uninitialized constant Puma::Binder::HTTP_X_FORWARDED_SCHEME
-# Did you mean?  Puma::Binder::HTTP_X_FORWARDED_FOR
-#                Puma::Binder::HTTP_X_FORWARDED_SSL
+# Did you mean?  Puma::Binder::HTTP_X_FORWARDED_SSL
+#                Puma::Binder::HTTP_X_FORWARDED_FOR
 #                Puma::Binder::HTTP_X_FORWARDED_PROTO
 # uninitialized constant Puma::Binder::HTTP_X_FORWARDED_SSL
 # Did you mean?  Puma::Binder::HTTP_X_FORWARDED_FOR
@@ -20901,12 +20775,12 @@
 # Did you mean?  Puma::Client::HTTP_X_FORWARDED_SSL
 #                Puma::Client::HTTP_X_FORWARDED_PROTO
 # uninitialized constant Puma::Client::HTTP_X_FORWARDED_PROTO
-# Did you mean?  Puma::Client::HTTP_X_FORWARDED_FOR
-#                Puma::Client::HTTP_X_FORWARDED_SSL
+# Did you mean?  Puma::Client::HTTP_X_FORWARDED_SSL
+#                Puma::Client::HTTP_X_FORWARDED_FOR
 #                Puma::Client::HTTP_X_FORWARDED_SCHEME
 # uninitialized constant Puma::Client::HTTP_X_FORWARDED_SCHEME
-# Did you mean?  Puma::Client::HTTP_X_FORWARDED_FOR
-#                Puma::Client::HTTP_X_FORWARDED_SSL
+# Did you mean?  Puma::Client::HTTP_X_FORWARDED_SSL
+#                Puma::Client::HTTP_X_FORWARDED_FOR
 #                Puma::Client::HTTP_X_FORWARDED_PROTO
 # uninitialized constant Puma::Client::HTTP_X_FORWARDED_SSL
 # Did you mean?  Puma::Client::HTTP_X_FORWARDED_FOR
@@ -21009,12 +20883,12 @@
 # Did you mean?  Puma::Events::HTTP_X_FORWARDED_SSL
 #                Puma::Events::HTTP_X_FORWARDED_PROTO
 # uninitialized constant Puma::Events::HTTP_X_FORWARDED_PROTO
-# Did you mean?  Puma::Events::HTTP_X_FORWARDED_FOR
-#                Puma::Events::HTTP_X_FORWARDED_SSL
+# Did you mean?  Puma::Events::HTTP_X_FORWARDED_SSL
+#                Puma::Events::HTTP_X_FORWARDED_FOR
 #                Puma::Events::HTTP_X_FORWARDED_SCHEME
 # uninitialized constant Puma::Events::HTTP_X_FORWARDED_SCHEME
-# Did you mean?  Puma::Events::HTTP_X_FORWARDED_FOR
-#                Puma::Events::HTTP_X_FORWARDED_SSL
+# Did you mean?  Puma::Events::HTTP_X_FORWARDED_SSL
+#                Puma::Events::HTTP_X_FORWARDED_FOR
 #                Puma::Events::HTTP_X_FORWARDED_PROTO
 # uninitialized constant Puma::Events::HTTP_X_FORWARDED_SSL
 # Did you mean?  Puma::Events::HTTP_X_FORWARDED_FOR
@@ -21120,12 +20994,12 @@
 # Did you mean?  Puma::Server::HTTP_X_FORWARDED_SSL
 #                Puma::Server::HTTP_X_FORWARDED_PROTO
 # uninitialized constant Puma::Server::HTTP_X_FORWARDED_PROTO
-# Did you mean?  Puma::Server::HTTP_X_FORWARDED_FOR
-#                Puma::Server::HTTP_X_FORWARDED_SSL
+# Did you mean?  Puma::Server::HTTP_X_FORWARDED_SSL
+#                Puma::Server::HTTP_X_FORWARDED_FOR
 #                Puma::Server::HTTP_X_FORWARDED_SCHEME
 # uninitialized constant Puma::Server::HTTP_X_FORWARDED_SCHEME
-# Did you mean?  Puma::Server::HTTP_X_FORWARDED_FOR
-#                Puma::Server::HTTP_X_FORWARDED_SSL
+# Did you mean?  Puma::Server::HTTP_X_FORWARDED_SSL
+#                Puma::Server::HTTP_X_FORWARDED_FOR
 #                Puma::Server::HTTP_X_FORWARDED_PROTO
 # uninitialized constant Puma::Server::HTTP_X_FORWARDED_SSL
 # Did you mean?  Puma::Server::HTTP_X_FORWARDED_FOR
