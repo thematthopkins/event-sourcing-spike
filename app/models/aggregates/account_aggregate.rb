@@ -3,9 +3,9 @@
 class AccountCreated < RailsEventStore::Event
   extend T::Sig
 
-  sig {params(msg: {data:{name: String, id: String}}).returns(AccountCreated)}
-  def initialize(msg)
-    super(msg)
+  sig {params(event_id: String, metadata: T.nilable(T::Hash[String, String]), data:{name: String, id: String}).void}
+  def initialize(event_id: SecureRandom.uuid, metadata: nil, data: {name: "", id: ""})
+    super(event_id: event_id, metadata: metadata, data: data)
   end
 end
   
@@ -45,14 +45,22 @@ class AccountAggregate
     apply(AccountNameChanged.new(data: {name: new_name, prev_name: @name}))
   end
 
+  sig {params(new_name: String).void}
+  def changeNameWith2Events(new_name)
+    apply(AccountNameChanged.new(data: {name: new_name, prev_name: @name}), AccountNameChangeCompleted.new())
+  end
+
   on AccountNameChanged do |event|
-    name = event.data[:name]
-    prev_name = event.data[:prev_name]
+    T.bind(self, AccountAggregate)
+    #sorbet doesn't like using @ field names here
+    self.name = event.data[:name]
+    self.prev_name = event.data[:prev_name]
   end
 
   on AccountCreated do |event|
-    name = event.data[:name]
-    id = event.data[:id]
+    T.bind(self, AccountAggregate)
+    self.name = event.data[:name]
+    self.id = event.data[:id]
   end
 
   on AccountNameChangeCompleted do |event|

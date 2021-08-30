@@ -17,7 +17,7 @@ RSpec.describe Account, type: :model do
 
       repository.with_aggregate(AccountAggregate.new, account_id) do |account|
         sleep 1
-        account.changeName2('a')
+        account.changeNameWith2Events('a')
       end
       t.join
     }.to raise_exception(RubyEventStore::WrongExpectedEventVersion)
@@ -48,20 +48,16 @@ RSpec.describe Account, type: :model do
       }
     }
 
-    time = Benchmark.measure {
-
-      end_states =
-        account_ids.map{|account_id|
-          repository.load(AccountAggregate.new, account_id)
-        }
-
-      expect(end_states.length) .to eq(num_accounts)
-      end_states.each_with_index {|account, i| 
-        expect(account.id) .to eq(account_ids[i])
-        expect(account.name) .to eq(name_changes[-1])
-        expect(account.prev_name) .to eq(name_changes[-2])
+    end_states =
+      account_ids.map{|account_id|
+        repository.load(AccountAggregate.new, account_id)
       }
+
+    expect(end_states.length) .to eq(num_accounts)
+    end_states.each_with_index {|account, i| 
+      expect(account.id) .to eq(account_ids[i])
+      expect(account.name) .to eq(name_changes[-1])
+      expect(account.prev_name) .to eq(name_changes[-2])
     }
-    puts "projection time: #{time.real}"
   end
 end
