@@ -7,12 +7,39 @@ class AccountCreated < RailsEventStore::Event
   def initialize(event_id: SecureRandom.uuid, metadata: nil, data: {name: "", id: ""})
     super(event_id: event_id, metadata: metadata, data: data)
   end
+  
+  sig {returns({name: String, id: String})}
+  def data
+    super
+  end
 end
   
 class AccountNameChanged < RailsEventStore::Event
+  extend T::Sig
+
+  sig {params(event_id: String, metadata: T.nilable(T::Hash[String, String]), data:{name: String, prev_name: String}).void}
+  def initialize(event_id: SecureRandom.uuid, metadata: nil, data: {name: "", prev_name: ""})
+    super(event_id: event_id, metadata: metadata, data: data)
+  end
+  
+  sig {returns({name: String, prev_name: String})}
+  def data
+    super
+  end
 end
 
 class AccountNameChangeCompleted < RailsEventStore::Event
+  extend T::Sig
+
+  sig {params(event_id: String, metadata: T.nilable(T::Hash[String, String]), data:{}).void}
+  def initialize(event_id: SecureRandom.uuid, metadata: nil, data: {})
+    super(event_id: event_id, metadata: metadata, data: data)
+  end
+  
+  sig {returns({})}
+  def data
+    super
+  end
 end
 
 class AccountAggregate
@@ -52,6 +79,8 @@ class AccountAggregate
 
   on AccountNameChanged do |event|
     T.bind(self, AccountAggregate)
+    event = T.cast(event, AccountNameChanged)
+
     #sorbet doesn't like using @ field names here
     self.name = event.data[:name]
     self.prev_name = event.data[:prev_name]
@@ -59,6 +88,8 @@ class AccountAggregate
 
   on AccountCreated do |event|
     T.bind(self, AccountAggregate)
+    event = T.cast(event, AccountCreated)
+
     self.name = event.data[:name]
     self.id = event.data[:id]
   end
