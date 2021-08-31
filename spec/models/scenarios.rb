@@ -38,11 +38,13 @@ class Scenarios
     account_ids.each{|account_id|
       name_changes.each {|new_name|
         repository.with_aggregate(AccountAggregate.new, account_id) do |account|
+          puts "changing name"
           account.changeName(new_name)
         end
       }
     }
 
+    puts "loading end states"
     end_states =
       account_ids.map{|account_id|
         repository.load(AccountAggregate.new, account_id)
