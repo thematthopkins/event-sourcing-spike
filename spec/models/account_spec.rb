@@ -14,19 +14,38 @@ RSpec.describe Account, type: :model do
     }.to raise_exception(RubyEventStore::WrongExpectedEventVersion)
   end
 
-  it 'can process bulk name change events' do
-    num_accounts = 1
-    account_ids = (0...num_accounts).map{ |i| SecureRandom.uuid }
-    num_name_changes = 100
-    name_changes = (0...num_name_changes).map{ |i| SecureRandom.uuid }
 
-    end_states = Scenarios.bulk_example(account_ids, name_changes)
-    expect(end_states.length) .to eq(num_accounts)
-    end_states.each_with_index {|account, i| 
-      puts "result id #{account.id}"
-      expect(account.id) .to eq(account_ids[i])
-      expect(account.name) .to eq(name_changes[-1])
-      expect(account.prev_name) .to eq(name_changes[-2])
-    }
+  let(:repo){AggregateRoot::Repository.new}
+
+  def runNameChanges(account_id, count)
+    client = RailsEventStore::Client.new
+
+    account_id = 'my-account-id'
+    client.publish(AccountCreated.new(
+      data: {
+        id: account_id,
+        name: ""
+      }
+    ), stream_name: account_id)
+
+    name_changes = (0..count).map{ |i| SecureRandom.uuid }
+    repo.with_aggregate(AccountAggregate.new, account_id) do |account|
+      name_changes.each {|new_name|
+          account.changeName(new_name)
+      }
+    end
+
+  end
+
+  it 'drops the created event when there are 100 events' do
+    runNameChanges('my-account-id', 100)
+    result = repo.load(AccountAggregate.new, 'my-account-id')
+    expect(result.id).to eq('')
+  end
+
+  it 'retains the created event when there are < 50 events' do
+    runNameChanges('my-account-id', 50)
+    result = repo.load(AccountAggregate.new,  'my-account-id')
+    expect(result.id).to eq('my-account-id')
   end
 end

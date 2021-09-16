@@ -20,6 +20,9 @@ $INITDB -A password -U superuser "${DB_DIR}" --pwfile="${tempDBPass}"
     echo "timezone = UTC"
     echo "log_min_messages = 'notice'"
     echo "jit = off"
+#    echo "shared_preload_libraries = 'auto_explain'"
+#    echo "auto_explain.log_min_duration = 1"
+#    echo "auto_explain.log_analyze = on"
 } >> "${DB_DIR}/postgresql.conf"
 
 if [ "$SQL_DEBUG_LOGGING" == "true" ]; then

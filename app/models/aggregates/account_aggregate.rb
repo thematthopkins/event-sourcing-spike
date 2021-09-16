@@ -87,13 +87,11 @@ class AccountAggregate
   end
 
   on AccountCreated do |event|
-    puts "received account created"
     T.bind(self, AccountAggregate)
     event = T.cast(event, AccountCreated)
 
     self.name = event.data[:name]
     self.id = event.data[:id]
-    puts "id: #{self.id}"
   end
 
   on AccountNameChangeCompleted do |event|
