@@ -29,11 +29,11 @@ RSpec.describe Account, type: :model do
     ), stream_name: account_id)
 
     name_changes = (0..count).map{ |i| SecureRandom.uuid }
-    repo.with_aggregate(AccountAggregate.new, account_id) do |account|
-      name_changes.each {|new_name|
-          account.changeName(new_name)
-      }
-    end
+    name_changes.each {|new_name|
+      repo.with_aggregate(AccountAggregate.new, account_id) do |account|
+            account.changeName(new_name)
+      end
+    }
 
   end
 
